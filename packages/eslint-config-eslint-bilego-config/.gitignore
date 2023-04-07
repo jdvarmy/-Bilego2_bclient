@@ -1,6 +1,15 @@
 # dependencies
 /node_modules
 /.idea
+/.vscode
+
+# testing
+/coverage
+
+# production
+/build
+/out
+.next
 
 # debug
 yarn-debug.log*
@@ -12,3 +21,6 @@ yarn-error.log*
 
 # env files
 .env
+
+# turbo
+.turbo
