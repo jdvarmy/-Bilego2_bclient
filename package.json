@@ -1,0 +1,21 @@
+{
+  "name": "bclient",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "",
+    "build": ""
+  },
+  "author": "jdvarmy",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint-config-eslint-bilego-config": "*",
+    "prettier": "2.8.7",
+    "turbo": "1.8.8"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "packageManager": "yarn@1.22.19"
+}
