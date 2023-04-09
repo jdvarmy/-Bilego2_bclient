@@ -1,3 +1,5 @@
+import './globals.css';
+
 import React, { ReactNode } from 'react';
 
 export const metadata = {

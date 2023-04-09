@@ -1,5 +1,5 @@
 {
-  "name": "ui",
+  "name": "utils",
   "version": "0.0.1",
   "main": "./index.tsx",
   "types": "./index.tsx",
@@ -8,10 +8,7 @@
     "lint": "eslint \"**/*.ts*\""
   },
   "devDependencies": {
-    "@types/react": "18.0.33",
     "eslint-config-esconf": "*",
-    "react": "18.2.0",
-    "tailwind": "*",
     "tsconfig": "*"
   }
 }

@@ -1,10 +1,10 @@
 module.exports = {
   root: true,
-  // Загружает конфиг eslint-config-eslint-bilego-config
-  extends: ["eslint-bilego-config"],
+  // Загружает конфиг eslint-config-esconf
+  extends: ['esconf'],
   settings: {
     next: {
-      rootDir: ["apps/*/"],
+      rootDir: ['apps/*/'],
     },
   },
 };

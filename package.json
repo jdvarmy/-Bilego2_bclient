@@ -10,12 +10,11 @@
   "author": "jdvarmy",
   "license": "ISC",
   "devDependencies": {
-    "eslint-config-eslint-bilego-config": "*",
+    "eslint-config-esconf": "*",
     "prettier": "2.8.7",
     "turbo": "1.8.8"
   },
   "engines": {
     "node": ">=16.0.0"
-  },
-  "packageManager": "yarn@1.22.19"
+  }
 }
