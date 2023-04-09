@@ -122,10 +122,8 @@ module.exports = {
       menu: '280px',
     }),
     fontFamily: {
-      sans: ['sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Noto Color Emoji"'],
-      serif: ['serif'],
+      sans: ['var(--font-sansation)'],
       mono: ['monospace'],
-      body: ['Sansation'],
     },
     fontSize: {
       xs: ['0.875rem', { lineHeight: '1.25rem' }],
