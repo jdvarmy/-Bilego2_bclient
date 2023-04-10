@@ -1,10 +1,6 @@
-import { Button } from 'ui';
+import { redirect } from 'next/navigation';
+import { City } from 'utils/enums';
 
-export default function Page() {
-  return (
-    <div>
-      <h1 className='text-raspberry text-h1'>The quick brown fox jumps over th</h1>
-      <Button />
-    </div>
-  );
+export default function HomePage() {
+  redirect(`/${City.petersburg}`);
 }
