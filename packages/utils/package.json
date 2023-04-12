@@ -1,12 +1,7 @@
 {
   "name": "utils",
   "version": "0.0.1",
-  "main": "./index.tsx",
-  "types": "./index.tsx",
   "license": "MIT",
-  "scripts": {
-    "lint": "eslint \"**/*.ts*\""
-  },
   "devDependencies": {
     "eslint-config-esconf": "*",
     "tsconfig": "*"

@@ -1,9 +1,10 @@
 import { Metadata } from 'next';
 import { ReactNode } from 'react';
-import { SideMenu } from 'ui';
+import { TwoColsLeftMenu } from 'ui';
 import { City } from 'utils/enums';
 import { CityMapper } from 'utils/mappers';
-import { ProjectName } from 'utils/types';
+
+import { ProjectName } from '../types';
 
 type PropsMetadata = {
   params: { city: City };
@@ -24,10 +25,5 @@ type PropsLayout = {
 };
 
 export default function CityLayout({ children }: PropsLayout) {
-  return (
-    <main className='flex w-screen h-screen'>
-      <SideMenu />
-      <div>{children}</div>
-    </main>
-  );
+  return <TwoColsLeftMenu>{children}</TwoColsLeftMenu>;
 }

@@ -2,7 +2,10 @@
   "name": "bclient",
   "version": "0.0.1",
   "private": true,
-  "workspaces": ["apps/*", "packages/*"],
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "dev": "./node_modules/.bin/turbo run dev",
     "build": "./node_modules/.bin/turbo run build"
