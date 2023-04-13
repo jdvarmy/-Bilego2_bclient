@@ -4,6 +4,7 @@
   "license": "MIT",
   "devDependencies": {
     "eslint-config-esconf": "*",
-    "tsconfig": "*"
+    "tsconfig": "*",
+    "typescript": "4.9.5"
   }
 }

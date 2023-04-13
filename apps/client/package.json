@@ -10,6 +10,9 @@
     "start:custom": "NODE_ENV=production node server.js"
   },
   "dependencies": {
+    "@headlessui/react": "1.7.13",
+    "@heroicons/react": "2.0.17",
+    "immer": "9.0.21",
     "next": "13.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -26,6 +29,7 @@
     "@types/qs": "6.9.7",
     "eslint-config-custom": "*",
     "tailwind": "*",
-    "tsconfig": "*"
+    "tsconfig": "*",
+    "typescript": "4.9.5"
   }
 }
