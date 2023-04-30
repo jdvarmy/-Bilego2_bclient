@@ -1,0 +1,58 @@
+{
+  "name": "sdc_js_client",
+  "private": true,
+  "version": "0.1.0",
+  "description": "SDC software frontend application",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "npm run lint",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "pre-commit": "npm run lint",
+    "pre-push": "npm run lint",
+    "prepare": "husky install"
+  },
+  "author": "Antonov Sergei",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "1.4.0",
+    "i18next": "22.4.15",
+    "immer": "10.0.1",
+    "next": "13.3.1",
+    "next-i18next": "13.2.2",
+    "qs": "6.11.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "swr": "2.1.5",
+    "zustand": "4.3.7"
+  },
+  "devDependencies": {
+    "@types/node": "18.16.1",
+    "@types/qs": "^6.9.7",
+    "@types/react": "18.2.0",
+    "@types/react-dom": "18.2.1",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.39.0",
+    "eslint-config-next": "13.3.1",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-config-turbo": "1.9.3",
+    "eslint-plugin-simple-import-sort": "10.0.0",
+    "husky": "8.0.3",
+    "postcss": "8.4.23",
+    "postcss-preset-env": "8.3.2",
+    "prettier": "2.8.8",
+    "tailwindcss": "3.3.2",
+    "typescript": "5.0.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pre-commit",
+      "pre-push": "npm run pre-push"
+    }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

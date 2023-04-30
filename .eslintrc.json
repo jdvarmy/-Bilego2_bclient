@@ -1,0 +1,10 @@
+{
+  "extends": ["eslint:recommended", "prettier", "next", "next/core-web-vitals"],
+  "plugins": ["simple-import-sort"],
+  "rules": {
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "@next/next/no-html-link-for-pages": "off",
+    "no-unused-vars": [1, { "varsIgnorePattern": "^_" }]
+  }
+}
