@@ -9,7 +9,7 @@ type Actions = {
   setCount: (cnt: number) => void;
 };
 
-export const useHomeStore = stateCreatorHelper<State & Actions>(set => ({
+export const homeStore = stateCreatorHelper<State & Actions>(set => ({
   count: 0,
   increment: () =>
     set(state => {

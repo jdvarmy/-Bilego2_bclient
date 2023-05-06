@@ -12,7 +12,7 @@ export default class HomeDocument extends Document<DocumentProps> {
         <Head>
           <meta charSet='utf-8' />
         </Head>
-        <body>
+        <body className='text-white bg-blue-900 font-body text-base'>
           <Main />
           <NextScript />
         </body>
