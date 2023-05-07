@@ -1,11 +1,7 @@
 {
   "home": {
     "head": {
-      "title": "Home | SDC Software"
-    },
-    "h1": "A simple example",
-    "paragraphEn": "Find in-depth information about Next.js features and API.",
-    "paragraphRu": "Learn about Next.js in an interactive course with quizzes!",
-    "paragraphKo": "Discover and deploy boilerplate example Next.js projects."
+      "title": "Главная | Bilego"
+    }
   }
 }

@@ -11,16 +11,14 @@ export const FastButtons = () => {
   const setStartDate = calendarActions.setStartDate();
   const setEndDate = calendarActions.setEndDate();
 
+  const date = Date.now();
   const clickTodayHandler = () => {
-    const date = new Date();
     setOneDayDate(date);
 
     setDay(date);
     setWeek(getWeek(date));
   };
   const clickWeekendHandler = () => {
-    const date = new Date();
-
     if (isSaturday(date)) {
       setStartDate(date);
       setEndDate(addDays(date, 1));

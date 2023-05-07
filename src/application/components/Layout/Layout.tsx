@@ -3,6 +3,9 @@ import React, { PropsWithChildren } from 'react';
 
 import { LeftSide } from '@/application/components/LeftSide/LeftSide';
 import { RightSide } from '@/application/components/RightSide/RightSide';
+import { AvailableCities } from '@/application/screens/City/enums';
+import { cityActions } from '@/application/screens/City/store/cityActions';
+import { CityPagePropsType } from '@/pages/[city]';
 
 const sansationFont = localFont({
   src: [
@@ -13,11 +16,13 @@ const sansationFont = localFont({
   variable: '--font-sansation',
 });
 
-export const Layout = ({ children }: PropsWithChildren) => {
+export const Layout = ({ children, params, global }: PropsWithChildren<CityPagePropsType>) => {
+  cityActions.setCity()(params?.city || AvailableCities.spb);
+
   return (
     <main className={`${sansationFont.className}`}>
       <div className='flex w-screen h-screen'>
-        <LeftSide />
+        <LeftSide {...global} />
         <RightSide>{children}</RightSide>
       </div>
     </main>

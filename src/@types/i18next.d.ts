@@ -7,7 +7,7 @@
  */
 import 'i18next';
 
-import type common from '../../public/locales/en/common.json';
+import type common from '../../public/locales/ru/common.json';
 
 interface I18nNamespaces {
   common: typeof common;

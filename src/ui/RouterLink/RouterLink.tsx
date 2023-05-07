@@ -1,16 +1,17 @@
+import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { PropsWithChildren } from 'react';
+import React, { AnchorHTMLAttributes, forwardRef } from 'react';
 
-export const RouterLink = ({ href, children }: PropsWithChildren<{ href: string }>) => {
+export const RouterLink = forwardRef<HTMLAnchorElement, AnchorHTMLAttributes<HTMLAnchorElement>>(function RouterLink(
+  { children, href, className, ...props },
+  ref,
+) {
   const router = useRouter();
-
-  const handleRouter = (href: string) => () => {
-    void router.push(href);
-  };
+  const city = router.query.city as string;
 
   return (
-    <span onClick={handleRouter(href)} className='cursor-pointer'>
+    <Link href={`/${city}${href}`} ref={ref} className={`cursor-pointer ${className}`} {...props}>
       {children}
-    </span>
+    </Link>
   );
-};
+});
