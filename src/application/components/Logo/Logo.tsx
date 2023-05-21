@@ -1,6 +1,6 @@
 import React from 'react';
 
-import IconLogo from '@/ui/icons/IconLogo';
+import { IconLogo } from '@/ui/icons/IconLogo';
 import { RouterLink } from '@/ui/RouterLink/RouterLink';
 
 export const Logo = () => {

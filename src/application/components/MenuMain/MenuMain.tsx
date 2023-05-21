@@ -13,7 +13,7 @@ export const MenuMain = ({ format, selection }: Props) => {
         <div className='text-xs'>
           <MenuItem title='выходные' href={`/events?weekends=1`} />
           <MenuItem title='ближайшие' href={`/events?closest=1`} />
-          {selection.map(item => (
+          {selection?.map(item => (
             <MenuItem key={item.slug} title={item.name} href={`/events?category=${item.slug}`} />
           ))}
         </div>

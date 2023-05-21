@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 type Props = {
   width?: number;
@@ -6,7 +6,7 @@ type Props = {
   fill?: string;
 };
 
-const IconLogo = ({ width, height, fill }: Props) => {
+export const IconLogo = memo(({ width, height, fill }: Props) => {
   return (
     <svg
       width={width ?? 154}
@@ -45,6 +45,6 @@ const IconLogo = ({ width, height, fill }: Props) => {
       />
     </svg>
   );
-};
+});
 
-export default IconLogo;
+IconLogo.displayName = 'IconLogo';
