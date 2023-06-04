@@ -22,25 +22,9 @@ export const calendarStore = stateCreatorHelper<State & Actions>(set => ({
   week: getWeek(now),
   startDate: now,
   endDate: now,
-  setDay: date =>
-    set(state => {
-      state.day = date;
-    }),
-  setWeek: week =>
-    set(state => {
-      state.week = week;
-    }),
-  setOneDayDate: date =>
-    set(state => {
-      state.startDate = date;
-      state.endDate = date;
-    }),
-  setStartDate: date =>
-    set(state => {
-      state.startDate = date;
-    }),
-  setEndDate: date =>
-    set(state => {
-      state.endDate = date;
-    }),
+  setDay: date => set({ day: date }),
+  setWeek: week => set({ week }),
+  setOneDayDate: date => set({ startDate: date, endDate: date }),
+  setStartDate: date => set({ startDate: date }),
+  setEndDate: date => set({ endDate: date }),
 }));

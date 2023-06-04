@@ -6,6 +6,7 @@ import { ApiSide } from '@/application/utils/fetchers/enums';
 const api = axiosApi(ApiSide.client);
 
 export const publicFetcher = {
+  fetcher: api,
   // eslint-disable-next-line react-hooks/rules-of-hooks
   get: <R>(data: Parameters<typeof api.get>[0]) => useSWR(data, api.get<R>),
   // eslint-disable-next-line react-hooks/rules-of-hooks

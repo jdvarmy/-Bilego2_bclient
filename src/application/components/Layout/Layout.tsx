@@ -7,7 +7,7 @@ import { AvailableCities } from '@/application/screens/City/enums';
 import { cityActions } from '@/application/screens/City/store/cityActions';
 import { CityPagePropsType } from '@/pages/[city]';
 
-const sansationFont = localFont({
+export const sansationFont = localFont({
   src: [
     { path: './../../../fonts/Sansation.woff2', weight: '400', style: 'normal' },
     { path: './../../../fonts/Sansation-Bold.woff2', weight: '700', style: 'bold' },

@@ -31,6 +31,7 @@ const grid = {
 
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  plugins: [],
   theme: {
     screens: {
       sm: '640px',
@@ -156,5 +157,4 @@ module.exports = {
       full: '9999px',
     },
   },
-  plugins: [],
 };

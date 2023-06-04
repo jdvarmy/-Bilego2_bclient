@@ -1,6 +1,6 @@
 import React, { ChangeEvent, KeyboardEvent, useCallback, useRef, useState } from 'react';
 
-import { SearchModal } from '@/application/components/RightSide/components/SearchModal';
+import { SearchModal } from '@/application/components/Search/SearchModal';
 import { SearchInput } from '@/ui/SearchInput/SearchInput';
 
 export const Search = () => {

@@ -1,17 +1,22 @@
 import React from 'react';
 
-import { Search } from '@/application/components/RightSide/components/Search';
+import { Auth } from '@/application/components/Auth/Auth';
+import { CitySwitcher } from '@/application/components/CitySwitcher/CitySwitcher';
+import { MyEvents } from '@/application/components/MyEvents/MyEvents';
+import { PreferenceModeIcon } from '@/application/components/PreferenceMode/PreferenceModeIcon';
+import { Search } from '@/application/components/Search/Search';
 
 export const PageHead = () => {
   return (
-    <div className='flex justify-between relative z-20'>
+    <div className='flex justify-between relative'>
       <div className='flex items-center justify-center'>
         <Search />
-        {/*<PreferenceMode />*/}
+        <PreferenceModeIcon />
       </div>
       <div className='flex items-center justify-center'>
-        {/*<City />*/}
-        {/*<User />*/}
+        <MyEvents />
+        <CitySwitcher />
+        <Auth />
       </div>
     </div>
   );

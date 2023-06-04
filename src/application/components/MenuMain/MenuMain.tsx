@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MenuItem from '@/application/components/MenuMain/components/MenuItem';
+import { MenuItem } from '@/application/components/MenuMain/components/MenuItem';
 import { GlobalProps } from '@/application/utils/hof/getStaticPropsWithGlobalProps';
 
 type Props = GlobalProps['global']['menu'];

@@ -11,8 +11,6 @@ type Actions = {
 export const cityStore = stateCreatorHelper<State & Actions>(set => ({
   city: null,
   setCity: city => {
-    set(state => {
-      state.city = city;
-    });
+    set({ city });
   },
 }));

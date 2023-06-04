@@ -10,7 +10,7 @@ export const RouterLink = forwardRef<HTMLAnchorElement, AnchorHTMLAttributes<HTM
   const city = router.query.city as string;
 
   return (
-    <Link href={`/${city}${href}`} ref={ref} className={`cursor-pointer ${className}`} {...props}>
+    <Link href={`/${city}${href}`} ref={ref} className={`cursor-pointer ${className ? className : ''}`} {...props}>
       {children}
     </Link>
   );
