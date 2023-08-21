@@ -60,7 +60,7 @@ export const Day = ({ day, selectedDate, dayOfWeek, hover, setHover }: Props) =>
       } flex flex-col items-center cursor-pointer relative w-8 select-none`}
     >
       <div className='font-light text-purple select-none'>{dayOfWeek}</div>
-      <div className={`${isBeforeLocal() && 'text-purple'} ${isWeekend(day) && 'text-raspberry'} select-none`}>
+      <div className={`${isBeforeLocal() ? 'text-purple' : ''} ${isWeekend(day) ? 'text-raspberry' : ''} select-none`}>
         {day.getDate()}
       </div>
     </div>

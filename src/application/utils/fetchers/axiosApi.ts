@@ -57,10 +57,13 @@ publicInstance.interceptors.response.use(
 );
 
 const baseRequest =
-  (side: ApiSide) =>
+  <T extends ApiSide>(side: T) =>
   <R>({ method, url, ...config }: AxiosRequestConfig): Promise<AxiosResponse<R>> => {
-    const instance = isServerSide(side) ? serverInstance : publicInstance;
-    return instance({ method, url, ...config });
+    if (isServerSide(side)) {
+      return serverInstance({ method, url, ...config });
+    }
+
+    return publicInstance({ method, url, ...config }).then(res => res.data);
   };
 
 export const axiosApi = (side: ApiSide): ApiType => ({
