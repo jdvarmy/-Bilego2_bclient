@@ -14,7 +14,7 @@ export const RouterLink = forwardRef<HTMLAnchorElement, AnchorHTMLAttributes<HTM
 
   return (
     <Link
-      href={`/${cityFromStore ?? cityFromRoute}${href}`}
+      href={encodeURI(`/${cityFromStore ?? cityFromRoute}${href}`)}
       ref={ref}
       className={`cursor-pointer ${className ? className : ''}`}
       {...props}

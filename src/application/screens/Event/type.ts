@@ -1,3 +1,4 @@
+import { AvailableCitiesLong } from '@/application/screens/City/enums';
 import { ItemShort } from '@/application/screens/Item/type';
 import { Taxonomy } from '@/application/screens/Taxonomy/types';
 
@@ -17,6 +18,10 @@ export enum ImageSizes {
   xl = '1920x1080',
 }
 
+export enum EventTypeTaxonomyEnum {
+  weekend = 'weekend',
+}
+
 export interface MediaDto {
   id: number;
   name: string;
@@ -26,15 +31,28 @@ export interface MediaDto {
   size: number;
 }
 
-export interface Slide {
+interface BaseEvent {
   uid: string;
   slug: string;
   title?: string;
-  artist?: any;
+  artist?: unknown;
   item?: ItemShort;
   taxonomy?: Pick<Taxonomy, 'uid' | 'name' | 'type' | 'slug'>[];
-  eventDate?: EventDate;
   image?: MediaDto;
+}
+
+export interface ISlide extends BaseEvent {
   fragment?: string;
   ageRestriction?: number;
+  eventDate?: EventDate;
 }
+
+export interface IEvent extends BaseEvent {
+  status: 'publish';
+  city: AvailableCitiesLong;
+  eventDates?: EventDate[];
+  isShowOnSlider: false;
+  concertManagerPercentage: 0;
+}
+
+export type PostType<T> = { items: T[]; props: { total: number; offset?: number } };

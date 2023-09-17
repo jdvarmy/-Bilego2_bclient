@@ -68,7 +68,7 @@ export const SearchModal = ({ open, target, onClose }: Props) => {
     >
       <div
         style={position}
-        className='absolute w-full max-w-md p-6 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl'
+        className='absolute z-10 w-full max-w-md p-6 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl'
       >
         <h3 className='text-h3 text-purple'>Поиск</h3>
         <div className='mt-2'>

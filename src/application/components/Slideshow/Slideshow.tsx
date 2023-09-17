@@ -6,11 +6,11 @@ import { Autoplay, Keyboard, Mousewheel, Pagination, Parallax } from 'swiper/mod
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { slideshowFormatter } from '@/application/components/Slideshow/helpers';
-import { ImageSizes, Slide } from '@/application/screens/Event/type';
+import { ImageSizes, ISlide } from '@/application/screens/Event/type';
 import { Chip } from '@/ui/Chip/Chip';
 import { RouterLink } from '@/ui/RouterLink/RouterLink';
 
-type Props = { slides: Slide[] };
+type Props = { slides: ISlide[] };
 
 export const Slideshow = ({ slides }: Props) => {
   return (
@@ -36,8 +36,10 @@ export const Slideshow = ({ slides }: Props) => {
               alt={slide.title}
               width={1920}
               height={460}
-              className='transition-opacity opacity-0 duration-[0.5s]'
+              className='w-auto transition-opacity opacity-0 duration-[0.5s]'
               onLoadingComplete={image => image.classList.remove('opacity-0')}
+              placeholder='blur'
+              blurDataURL={slide.image.path.find(s => s.includes(ImageSizes.xl) || s.includes(ImageSizes.origin))}
             />
             <div className='top-gradient' />
             <div className='absolute top-10 left-12 flex items-center'>
@@ -48,13 +50,13 @@ export const Slideshow = ({ slides }: Props) => {
               ))}
               <span className='font-bold text-base text-chrome'>+{slide.ageRestriction}</span>
             </div>
-            <div className='absolute bottom-10 left-12 w-3/5'>
+            <div className='absolute flex flex-col items-start bottom-10 left-12 w-3/5'>
               {slide.eventDate && (
                 <div className='text-h4 text-left mb-1.5'>{slideshowFormatter(slide.eventDate?.dateFrom)}</div>
               )}
               {slide.item && (
                 <RouterLink href={`/items/${slide.item?.slug}`}>
-                  <div className='text-h4 text-left mb-4'>{slide.item?.title}</div>
+                  <p className='text-h4 text-left mb-4 inline-block'>{slide.item?.title}</p>
                 </RouterLink>
               )}
               <div className='text-h3 font-bold text-left uppercase '>

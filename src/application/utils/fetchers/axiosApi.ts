@@ -4,7 +4,7 @@ import qs from 'qs';
 import { localStorageToken } from '@/application/constants';
 import { API_ROOT, PUBLIC_API_ROOT, PUBLIC_API_VERSION } from '@/application/env';
 import { ApiSide, RequestMethod } from '@/application/utils/fetchers/enums';
-import { ApiType } from '@/application/utils/fetchers/types';
+import { ApiType, Indexed } from '@/application/utils/fetchers/types';
 
 const isServerSide = (side: ApiSide) => side === ApiSide.server;
 
@@ -67,23 +67,26 @@ const baseRequest =
   };
 
 export const axiosApi = (side: ApiSide): ApiType => ({
-  get: ({ url, data, cfg }) => {
+  get: ({ url, data, cfg }, swrData?: { arg: Indexed }) => {
     if (data) {
       Object.keys(data).forEach(key => !data[key] ?? delete data[key]);
     }
 
     return baseRequest(side)({
       method: RequestMethod.get,
-      url: data ? `${url}${qs.stringify(data, { addQueryPrefix: true })}` : url,
+      url: data || swrData?.arg ? `${url}${qs.stringify({ ...data, ...swrData?.arg }, { addQueryPrefix: true })}` : url,
       ...cfg,
     });
   },
 
-  post: ({ url, data, cfg }) => baseRequest(side)({ method: RequestMethod.post, url, data, ...cfg }),
+  post: ({ url, data, cfg }, swrData?: { arg: Indexed }) =>
+    baseRequest(side)({ method: RequestMethod.post, url, data: { ...data, ...swrData?.arg }, ...cfg }),
 
-  put: ({ url, data, cfg }) => baseRequest(side)({ method: RequestMethod.put, url, data, ...cfg }),
+  put: ({ url, data, cfg }, swrData?: { arg: Indexed }) =>
+    baseRequest(side)({ method: RequestMethod.put, url, data: { ...data, ...swrData?.arg }, ...cfg }),
 
-  patch: ({ url, data, cfg }) => baseRequest(side)({ method: RequestMethod.patch, url, data, ...cfg }),
+  patch: ({ url, data, cfg }, swrData?: { arg: Indexed }) =>
+    baseRequest(side)({ method: RequestMethod.patch, url, data: { ...data, ...swrData?.arg }, ...cfg }),
 
   delete: ({ url, cfg }) => baseRequest(side)({ method: RequestMethod.delete, url, ...cfg }),
 });

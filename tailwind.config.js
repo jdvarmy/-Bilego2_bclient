@@ -88,6 +88,7 @@ module.exports = {
       chrome: '#c7c7de',
       turquoise: '#00e3b5',
       purple: '#7b7bab',
+      'purple-dark': '#474785',
       raspberry: '#ff336d',
       'blue-900': '#07072e',
       'blue-800': '#17173f',
@@ -135,6 +136,7 @@ module.exports = {
     fontSize: {
       xs: ['0.875rem', { lineHeight: '1.25rem' }],
       base: ['1rem', { lineHeight: '1.85rem' }],
+      h5: ['1.25rem', { lineHeight: '1.85rem' }],
       h4: ['1.55rem', { lineHeight: 'normal' }],
       h3: ['2.8rem', { lineHeight: 'normal' }],
       h2: ['3.125rem', { lineHeight: 'normal' }],

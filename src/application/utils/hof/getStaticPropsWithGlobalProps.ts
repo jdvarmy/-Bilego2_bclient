@@ -33,7 +33,7 @@ export const getStaticPropsWithGlobalProps =
       }),
     ];
 
-    const [{ data: version }, { data: category }, { data: selection }] = await Promise.all(promises);
+    const [version, category, selection] = await Promise.all(promises);
 
     const global = { version, menu: { format: category?.items, selection: selection?.items } };
 

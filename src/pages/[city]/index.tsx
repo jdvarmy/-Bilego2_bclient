@@ -3,26 +3,29 @@ import React from 'react';
 
 import { City } from '@/application/screens/City/City';
 import { AvailableCities } from '@/application/screens/City/enums';
-import { Slide } from '@/application/screens/Event/type';
+import { EventTypeTaxonomyEnum, IEvent, ISlide, PostType } from '@/application/screens/Event/type';
 import { serverFetcher } from '@/application/utils/fetchers/serverFetcher';
 import { getStaticPropsWithGlobalProps, GlobalProps } from '@/application/utils/hof/getStaticPropsWithGlobalProps';
 
 export type CityPagePropsType = GlobalProps & {
   params: { city: AvailableCities };
-  slides: Slide[];
+  slides: ISlide[];
+  events: Record<EventTypeTaxonomyEnum, PostType<IEvent>>;
 };
+
+export const defaultFetchCount: number = 4 as const;
 
 export default function CityPage(props: CityPagePropsType) {
   return <City {...props} />;
 }
 
 export const getStaticProps = getStaticPropsWithGlobalProps(async props => {
-  const { data } = await serverFetcher.get<Slide[]>({
-    url: `slider/${props.params.city}`,
-    data: { count: 8 },
-  });
+  const data = { count: defaultFetchCount, c: props.params.city };
 
-  return { props: { ...props, slides: data }, revalidate: 60 };
+  const slides = await serverFetcher.get<ISlide[]>({ url: `c/slider`, data });
+  const weekend = await serverFetcher.get<Event[]>({ url: `c/events`, data });
+
+  return { props: { ...props, slides, events: { weekend } }, revalidate: 60 };
 });
 
 export const getStaticPaths: GetStaticPaths = async () => {
