@@ -8,6 +8,8 @@ import { EventsBoard } from '@/application/screens/Event/components/EventsBoard/
 import { EventTypeTaxonomyEnum } from '@/application/screens/Event/type';
 import { CityPagePropsType } from '@/pages/[city]';
 
+// events?.weekend должны выбираться только выходные дни и праздники, доработать запрос
+
 export const City = function City({ params, slides, events }: CityPagePropsType) {
   return (
     <>

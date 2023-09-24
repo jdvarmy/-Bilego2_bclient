@@ -16,19 +16,20 @@ type Props = {
 };
 
 const links: Record<EventTypeTaxonomyEnum, string> = {
-  weekend: '/events?weekends=1',
+  weekend: 'weekends=1',
 };
 
 export const EventsBoard = ({ title, events, type }: Props) => {
-  const { slides, isLoading, handleLoadMoreSlides } = useHandlesEventsBoard(events);
+  const { slides, isLoading, handleLoadMoreSlides } = useHandlesEventsBoard(events, links[type]);
 
   if (!events || !isArray(events.items) || !events.items.length) {
+    // todo: сделать скелетон
     return <div />;
   }
 
   return (
     <div>
-      <BoarTitle title={title} href={links[type]} />
+      <BoarTitle title={title} href={'/events?' + links[type]} />
       <div className='mt-5'>
         <Swiper
           modules={[Navigation, FreeMode]}
