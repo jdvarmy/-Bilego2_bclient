@@ -26,6 +26,7 @@ body {
   height: 100%;
   margin-left: auto;
   margin-right: auto;
+  overflow: inherit;
 }
 
 .swiper-slide {
@@ -38,6 +39,8 @@ body {
 .swiper-slide img {
   display: block;
   object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 
 .top-gradient {
@@ -45,8 +48,7 @@ body {
   width: 100%;
   height: 100%;
   background: linear-gradient(360deg, rgba(10, 10, 48, 0.2) 0%, rgba(0, 0, 0, 0) 100%, rgba(0, 0, 12, 0.1) 100%),
-              linear-gradient(0deg, rgba(0, 0, 34, 0.3) 0%, rgba(0, 0, 34, 0.3) 100%),
-              50%;
+    linear-gradient(0deg, rgba(0, 0, 34, 0.3) 0%, rgba(0, 0, 34, 0.3) 100%), 50%;
 }
 
 .board-gradient {
@@ -55,34 +57,64 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(0deg, rgba(8, 8, 47, 0.80) 0.97%, rgba(0, 0, 3, 0.07) 32.12%);
+  background: linear-gradient(0deg, rgba(8, 8, 47, 0.8) 0.97%, rgba(0, 0, 3, 0.07) 32.12%);
 }
 
-.autoplay-progress {
-  position: absolute;
-  right: 16px;
-  bottom: 16px;
-  z-index: 10;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--swiper-theme-color);
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev,
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+  top: 34%;
+  width: 72px;
+  height: 72px;
+  background-color: #07072e;
+  border-radius: 50%;
+  margin-left: -46px;
+  margin-right: -46px;
 }
-
-.autoplay-progress svg {
-  --progress: 0;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-  stroke-width: 1px;
-  stroke: var(--swiper-theme-color);
-  fill: none;
-  stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
-  stroke-dasharray: 125.6;
-  transform: rotate(-90deg);
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 38px;
+}
+.swiper-button-prev:after {
+  margin-right: 2px;
+}
+.swiper-button-next:after {
+  margin-left: 2px;
+}
+.swiper-button-prev.swiper-button-disabled,
+.swiper-button-next.swiper-button-disabled {
+  display: none;
+}
+.swiper-button-loading:after {
+  content: none;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.bilego-spinner .circle:nth-of-type(1) {
+  transform: rotate(0deg);
+}
+.bilego-spinner .circle:nth-of-type(1) div {
+  animation: spin 2s infinite linear;
+}
+.bilego-spinner .circle:nth-of-type(2) {
+  transform: rotate(70deg);
+}
+.bilego-spinner .circle:nth-of-type(2) div {
+  animation: spin 2s infinite linear;
+}
+.bilego-spinner .circle:nth-of-type(3) {
+  transform: rotate(140deg);
+}
+.bilego-spinner .circle:nth-of-type(3) div {
+  animation: spin 2s infinite linear;
+}
+.bilego-spinner {
+  animation: spin 5s infinite linear;
 }

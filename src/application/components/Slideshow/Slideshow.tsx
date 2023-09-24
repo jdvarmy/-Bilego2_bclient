@@ -1,5 +1,3 @@
-import '@/application/components/Slideshow/slideshow.module.css';
-
 import Image from 'next/image';
 import React from 'react';
 import { Autoplay, Keyboard, Mousewheel, Pagination, Parallax } from 'swiper/modules';
@@ -18,10 +16,9 @@ export const Slideshow = ({ slides }: Props) => {
       <Swiper
         speed={600}
         loop={true}
-        cssMode={true}
         parallax={true}
         keyboard={true}
-        mousewheel={true}
+        mousewheel={false}
         spaceBetween={1}
         slidesPerView={1}
         centeredSlides={true}
@@ -42,7 +39,7 @@ export const Slideshow = ({ slides }: Props) => {
               blurDataURL={slide.image.path.find(s => s.includes(ImageSizes.xl) || s.includes(ImageSizes.origin))}
             />
             <div className='top-gradient' />
-            <div className='absolute top-10 left-12 flex items-center'>
+            <div className='absolute top-10 left-12 flex items-center' data-swiper-parallax='-100'>
               {slide.taxonomy.map(tax => (
                 <RouterLink key={tax.uid} href={`/${tax?.type}/${tax?.slug}`}>
                   <Chip text={tax?.name} />
@@ -50,7 +47,7 @@ export const Slideshow = ({ slides }: Props) => {
               ))}
               <span className='font-bold text-base text-chrome'>+{slide.ageRestriction}</span>
             </div>
-            <div className='absolute flex flex-col items-start bottom-10 left-12 w-3/5'>
+            <div data-swiper-parallax='-200' className='absolute flex flex-col items-start bottom-10 left-12 w-3/5'>
               {slide.eventDate && (
                 <div className='text-h4 text-left mb-1.5'>{slideshowFormatter(slide.eventDate?.dateFrom)}</div>
               )}
@@ -63,7 +60,7 @@ export const Slideshow = ({ slides }: Props) => {
                 <RouterLink href={`/events/${slide.slug}`}>{slide.title}</RouterLink>
               </div>
             </div>
-            <div className='absolute bottom-10 right-12'>
+            <div data-swiper-parallax-scale='0.15' className='absolute bottom-10 right-12'>
               <RouterLink
                 href={`/events/${slide.slug}`}
                 className='w-[220px] h-[52px] flex items-center justify-center rounded-4xl bg-raspberry shadow-[5px_5px_16px_0px_rgba(255,51,109,0.53)] text-h4'

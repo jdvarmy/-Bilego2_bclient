@@ -1,8 +1,8 @@
 import localFont from 'next/font/local';
 import React, { PropsWithChildren } from 'react';
 
-import { LeftSide } from '@/application/components/LeftSide/LeftSide';
-import { RightSide } from '@/application/components/RightSide/RightSide';
+import { LeftSide } from '@/application/components/Layout/LeftSide';
+import { RightSide } from '@/application/components/Layout/RightSide';
 import { AvailableCities } from '@/application/screens/City/enums';
 import { cityActions } from '@/application/screens/City/store/cityActions';
 import { CityPagePropsType } from '@/pages/[city]';

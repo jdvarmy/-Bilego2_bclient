@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-import { eventBoardDateFormatter } from '@/application/components/EventsBoard/helpers';
+import { eventBoardDateFormatter } from '@/application/screens/Event/components/EventsBoard/helpers';
 import { IEvent, ImageSizes } from '@/application/screens/Event/type';
 import { isArray } from '@/application/utils/tsGuards';
 import { Chip } from '@/ui/Chip/Chip';

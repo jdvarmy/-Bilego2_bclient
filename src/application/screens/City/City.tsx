@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { EventsBoard } from '@/application/components/EventsBoard/EventsBoard';
 import { HtmlHead } from '@/application/components/HtmlHead/HtmlHead';
 import { PromoCard } from '@/application/components/PromoCard/PromoCard';
 import { Slideshow } from '@/application/components/Slideshow/Slideshow';
 import { ruCity } from '@/application/screens/City/enums';
+import { EventsBoard } from '@/application/screens/Event/components/EventsBoard/EventsBoard';
 import { EventTypeTaxonomyEnum } from '@/application/screens/Event/type';
 import { CityPagePropsType } from '@/pages/[city]';
 

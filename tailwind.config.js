@@ -40,7 +40,6 @@ module.exports = {
       xl: '1280px',
       '2xl': '1536px',
     },
-
     spacing: {
       px: '1px',
       0: '0px',
@@ -93,6 +92,9 @@ module.exports = {
       'blue-900': '#07072e',
       'blue-800': '#17173f',
       white: '#ffffff',
+    },
+    shadow: {
+      spinner: 'inset 0 0 10px transparentize(#ff336d, 0.85)',
     },
     width: theme => ({
       auto: 'auto',
