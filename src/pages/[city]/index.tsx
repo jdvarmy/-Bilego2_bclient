@@ -23,7 +23,7 @@ export const getStaticProps = getStaticPropsWithGlobalProps(async props => {
   const data = { count: defaultFetchCount, c: props.params.city };
 
   const slides = await serverFetcher.get<ISlide[]>({ url: `c/slider`, data });
-  const weekend = await serverFetcher.get<Event[]>({ url: `c/events`, data });
+  const weekend = await serverFetcher.get<Event[]>({ url: `c/events`, data: { ...data, filter: { weekends: 1 } } });
 
   return { props: { ...props, slides, events: { weekend } }, revalidate: 60 };
 });

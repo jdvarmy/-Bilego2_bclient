@@ -9,7 +9,10 @@ import { defaultFetchCount } from '@/pages/[city]';
 export function useHandlesEventsBoard(events: PostType<IEvent>, link: string) {
   const { query } = useRouter();
   const { trigger, isMutating } = useSWRMutation(
-    { url: 'c/events', data: { count: defaultFetchCount, c: query.city, ...Object.fromEntries([link.split('=')]) } },
+    {
+      url: 'c/events',
+      data: { count: defaultFetchCount, c: query.city, filter: Object.fromEntries([link.split('=')]) },
+    },
     publicFetcher.fetcher.get<PostType<IEvent>>,
     { revalidate: false },
   );
