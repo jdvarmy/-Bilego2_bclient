@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 
-import { HtmlHead } from '@/application/components/HtmlHead/HtmlHead';
+import { HtmlHead } from '@/application/modules/HtmlHead/HtmlHead';
 
 export const Home = () => {
   const { t } = useTranslation('common');

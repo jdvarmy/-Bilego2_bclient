@@ -2,7 +2,7 @@ import React from 'react';
 import { FreeMode, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { Spinner } from '@/application/components/Spinner/Spinner';
+import { Spinner } from '@/application/modules/Spinner/Spinner';
 import { BoardItem } from '@/application/screens/Event/components/EventsBoard/BoardItem';
 import { BoarTitle } from '@/application/screens/Event/components/EventsBoard/BoarTitle';
 import { useHandlesEventsBoard } from '@/application/screens/Event/components/EventsBoard/hooks/useHandlesEventsBoard';
@@ -17,6 +17,8 @@ type Props = {
 
 const links: Record<EventTypeTaxonomyEnum, string> = {
   weekend: 'weekends=1',
+  nearest: 'nearest=1',
+  popular: 'popular=1',
 };
 
 export const EventsBoard = ({ title, events, type }: Props) => {
@@ -28,7 +30,7 @@ export const EventsBoard = ({ title, events, type }: Props) => {
   }
 
   return (
-    <div>
+    <div className='my-12'>
       <BoarTitle title={title} href={'/events?' + links[type]} />
       <div className='mt-5'>
         <Swiper

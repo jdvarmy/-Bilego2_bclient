@@ -24,8 +24,10 @@ export const getStaticProps = getStaticPropsWithGlobalProps(async props => {
 
   const slides = await serverFetcher.get<ISlide[]>({ url: `c/slider`, data });
   const weekend = await serverFetcher.get<Event[]>({ url: `c/events`, data: { ...data, filter: { weekends: 1 } } });
+  const nearest = await serverFetcher.get<Event[]>({ url: `c/events`, data: { ...data } });
+  const popular = await serverFetcher.get<Event[]>({ url: `c/events`, data: { ...data, filter: { popular: 1 } } });
 
-  return { props: { ...props, slides, events: { weekend } }, revalidate: 60 };
+  return { props: { ...props, slides, events: { weekend, nearest, popular } }, revalidate: 60 };
 });
 
 export const getStaticPaths: GetStaticPaths = async () => {

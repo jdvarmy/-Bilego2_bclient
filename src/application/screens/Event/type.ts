@@ -20,6 +20,8 @@ export enum ImageSizes {
 
 export enum EventTypeTaxonomyEnum {
   weekend = 'weekend',
+  nearest = 'nearest',
+  popular = 'popular',
 }
 
 export interface MediaDto {

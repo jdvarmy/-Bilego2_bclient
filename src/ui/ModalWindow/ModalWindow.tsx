@@ -1,7 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import React, { Fragment, PropsWithChildren } from 'react';
 
-import { sansationFont } from '@/application/components/Layout/Layout';
+import { sansationFont } from '@/application/modules/Layout/Layout';
 
 type Props = PropsWithChildren & {
   show: boolean;

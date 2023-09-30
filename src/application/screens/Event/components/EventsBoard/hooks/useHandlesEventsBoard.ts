@@ -8,16 +8,11 @@ import { defaultFetchCount } from '@/pages/[city]';
 
 export function useHandlesEventsBoard(events: PostType<IEvent>, link: string) {
   const { query } = useRouter();
-  const { trigger, isMutating } = useSWRMutation(
-    {
-      url: 'c/events',
-      data: { count: defaultFetchCount, c: query.city, filter: Object.fromEntries([link.split('=')]) },
-    },
-    publicFetcher.fetcher.get<PostType<IEvent>>,
-    { revalidate: false },
-  );
+  const { trigger, isMutating } = useSWRMutation({ url: 'c/events' }, publicFetcher.fetcher.get<PostType<IEvent>>, {
+    revalidate: false,
+  });
   const [{ slides, total, offset }, methods] = useMethods({
-    initialState: { slides: events.items, total: events.props?.total ?? 0, offset: defaultFetchCount },
+    initialState: { slides: events?.items || [], total: events?.props?.total ?? 0, offset: defaultFetchCount },
     methods: {
       addSlides(state, newValue: PostType<IEvent>) {
         state.slides.push(...newValue.items);
@@ -28,7 +23,12 @@ export function useHandlesEventsBoard(events: PostType<IEvent>, link: string) {
 
   const handleLoadMoreSlides = async () => {
     if (total > offset) {
-      const newSlides = await trigger({ offset });
+      const newSlides = await trigger({
+        c: query.city,
+        count: defaultFetchCount,
+        filter: link ? Object.fromEntries([link.split('=')]) : '',
+        offset,
+      });
       methods.addSlides(newSlides);
     }
   };

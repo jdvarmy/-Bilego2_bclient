@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { HtmlHead } from '@/application/components/HtmlHead/HtmlHead';
-import { PromoCard } from '@/application/components/PromoCard/PromoCard';
-import { Slideshow } from '@/application/components/Slideshow/Slideshow';
+import { HtmlHead } from '@/application/modules/HtmlHead/HtmlHead';
+import { PromoCard } from '@/application/modules/PromoCard/PromoCard';
+import { Slideshow } from '@/application/modules/Slideshow/Slideshow';
 import { ruCity } from '@/application/screens/City/enums';
 import { EventsBoard } from '@/application/screens/Event/components/EventsBoard/EventsBoard';
 import { EventTypeTaxonomyEnum } from '@/application/screens/Event/type';
@@ -25,6 +25,8 @@ export const City = function City({ params, slides, events }: CityPagePropsType)
         </div>
       </div>
       <EventsBoard events={events?.weekend} title='На выходные' type={EventTypeTaxonomyEnum.weekend} />
+      <EventsBoard events={events?.nearest} title='Ближайшие' type={EventTypeTaxonomyEnum.nearest} />
+      <EventsBoard events={events?.popular} title='Популярные' type={EventTypeTaxonomyEnum.popular} />
     </>
   );
 };
