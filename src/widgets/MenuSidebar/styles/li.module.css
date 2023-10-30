@@ -33,7 +33,7 @@
   content: '';
   position: absolute;
   inset: 5px;
-  width: 50px;
+  width: 40px;
   border-radius: 50%;
   transition: .5s;
   background-color: #00e3b5;

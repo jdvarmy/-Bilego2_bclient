@@ -2,7 +2,8 @@ import React from 'react';
 
 import { GlobalProps } from '@/helpers/hof/getGlobalProps';
 import { EventTypeTaxonomyEnum, IEvent, ISlide, PostType } from '@/screens/SingleEvent/type';
-import { PromoCard } from '@/ui/PromoCard/PromoCard';
+import { PromoBoardCards } from '@/ui/Promo/PromoBoardCards';
+import { PromoMainCards } from '@/ui/Promo/PromoMainCards';
 import { EventsBoard } from '@/widgets/EventsBoard/EventsBoard';
 import { ForSelectiveUsers } from '@/widgets/ForSelectiveUsers/ForSelectiveUsers';
 import { Slideshow } from '@/widgets/Slideshow/Slideshow';
@@ -38,12 +39,13 @@ export const City = ({ slides, events }: CityPagePropsType) => {
           <Slideshow slides={slides} />
         </div>
         <div className='flex-col justify-between rounded-xl col-span-4 hidden xl:flex xl:col-span-4'>
-          <PromoCard type='weekend'>На выходные</PromoCard>
-          <PromoCard type='popular'>Популярное</PromoCard>
-          <PromoCard type='kids'>Детям</PromoCard>
+          <PromoMainCards type='weekend'>На выходные</PromoMainCards>
+          <PromoMainCards type='popular'>Популярное</PromoMainCards>
+          <PromoMainCards type='kids'>Детям</PromoMainCards>
         </div>
       </div>
       <EventsBoard events={events?.weekend} title='На выходные' type={EventTypeTaxonomyEnum.weekend} />
+      <PromoBoardCards />
       <EventsBoard events={events?.nearest} title='Ближайшие' type={EventTypeTaxonomyEnum.nearest} />
       <ForSelectiveUsers />
       <EventsBoard events={events?.popular} title='Популярные' type={EventTypeTaxonomyEnum.popular} />

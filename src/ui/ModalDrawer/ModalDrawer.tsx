@@ -36,7 +36,7 @@ export const ModalDrawer = ({ children, show, onClose }: Props) => {
             leaveFrom='opacity-100 scale-100 translate-x'
             leaveTo='opacity-0 scale-95 -translate-x-full'
           >
-            <div className='flex absolute top-0 left-0 bg-blue-800 h-[100vh] p-6 overflow-hidden drop-shadow-[0_0_10px_rgba(123,123,171,1)] shadow-purple'>
+            <div className='flex absolute top-0 left-0 bg-blue-800 h-[100vh] p-6 overflow-hidden drop-shadow-[0_0_10px_rgba(123,123,171,.7)] shadow-purple'>
               {children}
             </div>
           </Transition.Child>

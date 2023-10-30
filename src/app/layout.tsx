@@ -31,7 +31,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
 
   return (
     <html lang='ru'>
-      <body className='text-white bg-blue-900 font-body text-base'>
+      <body className={`${font.className.toString()} text-white bg-blue-900 font-body text-base`}>
         <main className={font.className.toString()}>
           <div className='flex w-screen h-screen'>
             <div className='hidden bg-blue-800 md:fixed md:left-0 md:top-0 md:w-menu md:flex md:flex-col md:h-screen md:pt-9.5 md:px-8.5'>

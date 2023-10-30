@@ -32,7 +32,7 @@ export const EventsBoard = ({ title, events, type }: Props) => {
   }
 
   return (
-    <div className='my-2 md:my-12'>
+    <div className='my-6 md:my-12'>
       <BoarTitle title={title} href={links[type]} />
       <div className='mt-5'>
         <Swiper
