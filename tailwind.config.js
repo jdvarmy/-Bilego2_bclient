@@ -30,12 +30,13 @@ const grid = {
 };
 
 module.exports = {
-  content: ['./src/**/*.{js,ts,jsx,tsx}'],
-  plugins: [],
+  content: ['./src/**/*.{js,ts,jsx,tsx}', './node_modules/tw-elements/dist/js/**/*.js'],
+  plugins: [require('tw-elements/dist/plugin.cjs')],
+  darkMode: 'class',
   theme: {
     screens: {
       sm: '640px',
-      md: '768px',
+      md: '868px',
       lg: '1024px',
       xl: '1280px',
       '2xl': '1536px',
@@ -89,8 +90,9 @@ module.exports = {
       purple: '#7b7bab',
       'purple-dark': '#474785',
       raspberry: '#ff336d',
-      'blue-900': '#07072e',
+      'blue-700': '#22224D',
       'blue-800': '#17173f',
+      'blue-900': '#07072e',
       white: '#ffffff',
     },
     shadow: {
@@ -106,7 +108,7 @@ module.exports = {
       'event-block': '470px',
       'event-selective': '220px',
     }),
-    minWidth: theme => ({
+    minWidth: () => ({
       'event-block': '470px',
     }),
     height: theme => ({

@@ -1,6 +1,3 @@
-// @ts-check
-const { i18n } = require('./next-i18next.config.js');
-
 const nextUtilsConfig = () => {
   const tsconfigPath = process.env.NEXTJS_TSCONFIG_PATH ? process.env.NEXTJS_TSCONFIG_PATH : './tsconfig.json';
   return {
@@ -11,10 +8,6 @@ const { tsconfigPath } = nextUtilsConfig();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  poweredByHeader: false,
-  experimental: {
-    esmExternals: 'loose', // https://nextjs.org/blog/next-11-1#es-modules-support
-  },
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
@@ -26,7 +19,11 @@ const nextConfig = {
       },
     ],
   },
-  i18n,
+  poweredByHeader: false,
+  experimental: {
+    esmExternals: 'loose', // https://nextjs.org/blog/next-11-1#es-modules-support
+    serverActions: true,
+  },
   reactStrictMode: true,
   typescript: { tsconfigPath },
 };
