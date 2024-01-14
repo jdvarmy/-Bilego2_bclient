@@ -2,32 +2,8 @@
   position: relative;
 }
 .li.active {
-  border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px;
+  border-radius: 50px;
   background-color: #07072e;
-  margin-right: -24px;
-}
-.li.active:before {
-  content: '';
-  position: absolute;
-  top: -20px;
-  right: 0;
-  width: 20px;
-  height: 20px;
-  border-bottom-right-radius: 20px;
-  box-shadow: 5px 5px 0 5px #07072e;
-  background: transparent;
-}
-.li.active:after {
-  content: '';
-  position: absolute;
-  bottom: -20px;
-  right: 0;
-  width: 20px;
-  height: 20px;
-  border-top-right-radius: 20px;
-  box-shadow: 5px -5px 0 5px #07072e;
-  background: transparent;
 }
 .li.active a div:first-child:before {
   content: '';
