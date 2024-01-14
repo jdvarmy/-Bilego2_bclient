@@ -22,7 +22,6 @@ const nextConfig = {
   poweredByHeader: false,
   experimental: {
     esmExternals: 'loose', // https://nextjs.org/blog/next-11-1#es-modules-support
-    serverActions: true,
   },
   reactStrictMode: true,
   typescript: { tsconfigPath },
