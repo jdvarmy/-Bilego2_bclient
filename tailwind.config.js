@@ -30,8 +30,8 @@ const grid = {
 };
 
 module.exports = {
-  content: ['./src/**/*.{js,ts,jsx,tsx}', './node_modules/tw-elements/dist/js/**/*.js'],
-  plugins: [require('tw-elements/dist/plugin.cjs')],
+  content: ['./src/**/*.{js,ts,jsx,tsx}', './node_modules/tw-elements-react/dist/js/**/*.js'],
+  plugins: [require('tw-elements-react/dist/plugin.cjs')],
   darkMode: 'class',
   theme: {
     screens: {

@@ -34,7 +34,7 @@ export const Slideshow = ({ slides }: { slides: ISlide[] }) => {
               width={1920}
               height={460}
               className='w-auto transition-opacity opacity-0 duration-[0.5s]'
-              onLoadingComplete={image => image.classList.remove('opacity-0')}
+              onLoad={event => (event.target as HTMLImageElement).classList.remove('opacity-0')}
               placeholder='blur'
               blurDataURL={slide.image.path.find(s => s.includes(ImageSizes.xl) || s.includes(ImageSizes.origin))}
             />

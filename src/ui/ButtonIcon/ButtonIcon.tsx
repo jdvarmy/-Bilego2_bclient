@@ -1,4 +1,5 @@
-import React, { ButtonHTMLAttributes, PropsWithChildren, useEffect } from 'react';
+import React, { ButtonHTMLAttributes, PropsWithChildren } from 'react';
+import { TERipple } from 'tw-elements-react';
 
 const classNameDef =
   'inline-block rounded-full bg-blue-900 p-2 uppercase leading-normal text-chrome mr-4 ' +
@@ -18,22 +19,11 @@ export const ButtonIcon = ({
   className,
   ...props
 }: PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>) => {
-  useEffect(() => {
-    (async () => {
-      const { Ripple, initTE } = await import('tw-elements');
-      initTE({ Ripple });
-    })();
-  }, []);
-
   return (
-    <button
-      type='button'
-      data-te-ripple-init
-      data-te-ripple-color='light'
-      className={classNameDef + ' ' + className}
-      {...props}
-    >
-      {children}
-    </button>
+    <TERipple rippleColor='light'>
+      <button type='button' className={classNameDef + ' ' + className} {...props}>
+        {children}
+      </button>
+    </TERipple>
   );
 };
