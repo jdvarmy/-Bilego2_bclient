@@ -1,6 +1,6 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
 
-import { RequestMethod } from '@/helpers/fetchers/enums';
+import { RequestMethod } from '@/shared/helpers/fetchers/enums';
 
 export type Indexed<T = unknown> = Record<string | symbol, T>;
 

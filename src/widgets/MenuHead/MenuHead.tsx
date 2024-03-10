@@ -1,31 +1,10 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-import { ruCity } from '@/screens/City/City';
-import { citySelector } from '@/screens/City/store/citySelectors';
-import { menuHeadActions } from '@/widgets/MenuHead/store/menuHeadActions';
-import { isPreferenceModeOnSelector } from '@/widgets/MenuHead/store/menuHeadSelectors';
-import { BurgerMenu } from '@/widgets/MenuHead/views/BurgerMenu';
-import { CitySwitcher } from '@/widgets/MenuHead/views/CitySwitcher';
-import { PreferenceMode } from '@/widgets/MenuHead/views/PreferenceMode';
-import { Search } from '@/widgets/MenuHead/views/Search';
-import { menuSidebarActions } from '@/widgets/MenuSidebar/store/menuSidebarActions';
-
-export const MenuHead = () => {
-  const city = citySelector();
-  const isPreferenceModeOn = isPreferenceModeOnSelector();
-  const handleToggleMode = menuHeadActions.togglePreferenceMode();
-  const handleToggleSidebar = menuSidebarActions.toggleSidebar();
-
+export const MenuHead = (props: { leftSideChildren: ReactNode; rightSideChildren: ReactNode }) => {
   return (
-    <div className='flex justify-between relative'>
-      <div className='flex items-center justify-center'>
-        <BurgerMenu handleToggle={handleToggleSidebar} />
-        <Search />
-        <PreferenceMode isOn={isPreferenceModeOn} handleToggleMode={handleToggleMode} />
-      </div>
-      <div className='flex items-center justify-center'>
-        <CitySwitcher city={ruCity[city]} />
-      </div>
+    <div className='grid grid-flow-row-dense grid-cols-3 grid-rows-1 gap-4'>
+      <div className='col-span-2 flex items-center justify-start'>{props.leftSideChildren}</div>
+      <div className='flex items-center justify-end'>{props.rightSideChildren}</div>
     </div>
   );
 };

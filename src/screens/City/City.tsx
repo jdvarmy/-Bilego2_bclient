@@ -1,35 +1,12 @@
 import React from 'react';
 
-import { GlobalProps } from '@/helpers/hof/getGlobalProps';
-import { EventTypeTaxonomyEnum, IEvent, ISlide, PostType } from '@/screens/SingleEvent/type';
-import { PromoBoardCards } from '@/ui/Promo/PromoBoardCards';
-import { PromoMainCards } from '@/ui/Promo/PromoMainCards';
+import { CityPagePropsType } from '@/screens/City/types';
+import { EventTypeTaxonomyEnum } from '@/screens/SingleEvent/type';
+import { PromoBoardCards } from '@/shared/uikit/Promo/PromoBoardCards';
+import { PromoMainCards } from '@/shared/uikit/Promo/PromoMainCards';
 import { EventsBoard } from '@/widgets/EventsBoard/EventsBoard';
 import { ForSelectiveUsers } from '@/widgets/ForSelectiveUsers/ForSelectiveUsers';
 import { Slideshow } from '@/widgets/Slideshow/Slideshow';
-
-export enum AvailableCities {
-  spb = 'spb',
-  mos = 'mos',
-}
-
-export enum AvailableCitiesLong {
-  spb = 'petersburg',
-  mos = 'moscow',
-}
-
-export type CityPagePropsType = GlobalProps & {
-  params: { city: AvailableCities };
-  slides: ISlide[];
-  events: Record<EventTypeTaxonomyEnum, PostType<IEvent>>;
-};
-
-export const ruCity: Record<AvailableCities, string> = {
-  [AvailableCities.spb]: 'Санкт-Петербург',
-  [AvailableCities.mos]: 'Москва',
-};
-
-export const defaultEventsFetchCountForCityScreen: number = 4 as const;
 
 export const City = ({ slides, events }: CityPagePropsType) => {
   return (

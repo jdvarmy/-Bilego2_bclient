@@ -3,7 +3,7 @@ import { endOfWeek, startOfWeek } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import React, { Fragment } from 'react';
 
-import { transitionTimingFunction } from '@/helpers/constants';
+import { transitionTimingFunction } from '@/shared/helpers/constants';
 import { ruMonths } from '@/widgets/Calendar/constants';
 
 export const RenderMonths = ({ date, month, index }: { date: Date | number; month: string; index: number }) => {

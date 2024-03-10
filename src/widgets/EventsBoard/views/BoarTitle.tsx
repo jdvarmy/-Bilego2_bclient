@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Onward } from '@/ui/Onward/Onward';
-import { RouterLink } from '@/ui/RouterLink/RouterLink';
+import { Onward } from '@/shared/uikit/Onward/Onward';
+import { RouterLink } from '@/shared/uikit/RouterLink/RouterLink';
 
 export const BoarTitle = ({ title, href }: { title: string; href: string }) => {
   return (

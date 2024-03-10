@@ -1,17 +1,17 @@
 import Link from 'next/link';
 import React, { AnchorHTMLAttributes, forwardRef } from 'react';
 
-import { citySelector } from '@/screens/City/store/citySelectors';
+import { useCity } from '@/screens/City/hooks/useCity';
 
 export const RouterLink = forwardRef<HTMLAnchorElement, AnchorHTMLAttributes<HTMLAnchorElement>>(function RouterLink(
   { children, href, className, ...props },
   ref,
 ) {
-  const cityFromStore = citySelector();
+  const city = useCity();
 
   return (
     <Link
-      href={encodeURI(`/${cityFromStore}${href ?? ''}`)}
+      href={encodeURI(`/${city}${href ?? ''}`)}
       ref={ref}
       className={`cursor-pointer ${className ? className : ''}`}
       {...props}

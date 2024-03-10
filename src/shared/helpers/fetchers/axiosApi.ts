@@ -1,10 +1,10 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import qs from 'qs';
 
-import { localStorageToken } from '@/helpers/constants';
-import { API_ROOT, PUBLIC_API_ROOT, PUBLIC_API_VERSION } from '@/helpers/env';
-import { ApiSide, RequestMethod } from '@/helpers/fetchers/enums';
-import { ApiType, Indexed } from '@/helpers/fetchers/types';
+import { localStorageToken } from '@/shared/helpers/constants';
+import { API_ROOT, PUBLIC_API_ROOT, PUBLIC_API_VERSION } from '@/shared/helpers/env';
+import { ApiSide, RequestMethod } from '@/shared/helpers/fetchers/enums';
+import { ApiType, Indexed } from '@/shared/helpers/fetchers/types';
 
 const isServerSide = (side: ApiSide) => side === ApiSide.server;
 

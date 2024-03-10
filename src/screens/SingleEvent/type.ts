@@ -1,4 +1,4 @@
-import { AvailableCitiesLong } from '@/screens/City/City';
+import { AvailableCitiesLong } from '@/screens/City/types';
 import { ItemShort } from '@/screens/SingleItem/type';
 import { Taxonomy } from '@/screens/Taxonomy/types';
 
@@ -51,7 +51,7 @@ export interface ISlide extends BaseEvent {
 
 export interface IEvent extends BaseEvent {
   status: 'publish';
-  city: AvailableCitiesLong;
+  city: keyof typeof AvailableCitiesLong;
   eventDates?: EventDate[];
   isShowOnSlider: false;
   concertManagerPercentage: 0;

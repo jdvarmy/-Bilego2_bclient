@@ -1,5 +1,5 @@
-import { stateCreatorHelper } from '@/helpers/storeHelpers/stateCreatorHelper';
 import { User } from '@/screens/User/types';
+import { stateCreatorHelper } from '@/shared/helpers/storeHelpers/stateCreatorHelper';
 
 type State = {
   isLogin: boolean;

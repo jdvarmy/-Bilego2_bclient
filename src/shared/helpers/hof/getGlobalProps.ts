@@ -1,4 +1,4 @@
-import { serverFetcher } from '@/helpers/fetchers/serverFetcher';
+import { serverFetcher } from '@/shared/helpers/fetchers/serverFetcher';
 
 export type GlobalProps = {
   global: { version: string };

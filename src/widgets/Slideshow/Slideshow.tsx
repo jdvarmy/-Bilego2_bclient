@@ -6,8 +6,8 @@ import { Autoplay, Keyboard, Mousewheel, Pagination, Parallax } from 'swiper/mod
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { ImageSizes, ISlide } from '@/screens/SingleEvent/type';
-import { Chip } from '@/ui/Chip/Chip';
-import { RouterLink } from '@/ui/RouterLink/RouterLink';
+import { Chip } from '@/shared/uikit/Chip/Chip';
+import { RouterLink } from '@/shared/uikit/RouterLink/RouterLink';
 import { slideshowFormatter } from '@/widgets/Slideshow/helpers/slideshowFormatter';
 
 export const Slideshow = ({ slides }: { slides: ISlide[] }) => {

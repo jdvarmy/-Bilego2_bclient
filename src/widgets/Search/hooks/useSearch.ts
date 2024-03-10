@@ -1,3 +1,5 @@
+'use client';
+
 import { ChangeEvent, KeyboardEvent, useCallback, useRef, useState } from 'react';
 
 export function useSearch() {

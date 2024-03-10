@@ -2,8 +2,8 @@ import { HomeIcon } from '@heroicons/react/24/outline';
 import { usePathname, useSearchParams } from 'next/navigation';
 import React from 'react';
 
-import { ModalDrawer } from '@/ui/ModalDrawer/ModalDrawer';
-import { RouterLink } from '@/ui/RouterLink/RouterLink';
+import { ModalDrawer } from '@/shared/uikit/ModalDrawer/ModalDrawer';
+import { RouterLink } from '@/shared/uikit/RouterLink/RouterLink';
 import { menu } from '@/widgets/MenuMain/constants';
 import { IconLogo } from '@/widgets/MenuMain/views/IconLogo';
 import { menuSidebarActions } from '@/widgets/MenuSidebar/store/menuSidebarActions';

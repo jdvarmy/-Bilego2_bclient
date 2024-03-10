@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { memo } from 'react';
 
-import { RouterLink } from '@/ui/RouterLink/RouterLink';
+import { RouterLink } from '@/shared/uikit/RouterLink/RouterLink';
 
 export const Footer = memo(function menuFooter() {
   return (

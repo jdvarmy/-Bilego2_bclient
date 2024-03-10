@@ -1,6 +1,6 @@
-import { createSelector } from '@/helpers/storeHelpers/createSelector';
 import { userStore } from '@/screens/User/store/userStore';
 import { User } from '@/screens/User/types';
+import { createSelector } from '@/shared/helpers/storeHelpers/createSelector';
 
 export const userActions = {
   setUser: () => {

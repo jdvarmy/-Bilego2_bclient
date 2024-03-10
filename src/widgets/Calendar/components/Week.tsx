@@ -1,3 +1,5 @@
+'use client';
+
 import { getDay, isBefore, isEqual } from 'date-fns';
 import React, { useState } from 'react';
 

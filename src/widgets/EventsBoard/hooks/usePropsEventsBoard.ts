@@ -1,13 +1,13 @@
 import useSWRMutation from 'swr/mutation';
 
-import { publicFetcher } from '@/helpers/fetchers/publicFetcher';
-import { useMethods } from '@/helpers/hooks/useMethods';
-import { defaultEventsFetchCountForCityScreen } from '@/screens/City/City';
-import { citySelector } from '@/screens/City/store/citySelectors';
+import { useCity } from '@/screens/City/hooks/useCity';
+import { defaultEventsFetchCountForCityScreen } from '@/screens/City/types';
 import { IEvent, PostType } from '@/screens/SingleEvent/type';
+import { publicFetcher } from '@/shared/helpers/fetchers/publicFetcher';
+import { useMethods } from '@/shared/helpers/hooks/useMethods';
 
 export function usePropsEventsBoard(events: PostType<IEvent>, link: string) {
-  const city = citySelector();
+  const city = useCity();
 
   const [{ slides, total, offset }, methods] = useMethods({
     initialState: {

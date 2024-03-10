@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios';
 
-import { axiosApi } from '@/helpers/fetchers/axiosApi';
-import { ApiSide } from '@/helpers/fetchers/enums';
+import { axiosApi } from '@/shared/helpers/fetchers/axiosApi';
+import { ApiSide } from '@/shared/helpers/fetchers/enums';
 
 const api = axiosApi(ApiSide.server);
 

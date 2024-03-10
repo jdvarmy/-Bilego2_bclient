@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import React from 'react';
 
-import { isArray } from '@/helpers/tsGuards';
 import { IEvent, ImageSizes } from '@/screens/SingleEvent/type';
-import { Chip } from '@/ui/Chip/Chip';
-import { RouterLink } from '@/ui/RouterLink/RouterLink';
+import { isArray } from '@/shared/helpers/tsGuards';
+import { Chip } from '@/shared/uikit/Chip/Chip';
+import { RouterLink } from '@/shared/uikit/RouterLink/RouterLink';
 import { eventBoardDateFormatter } from '@/widgets/EventsBoard/helpers';
 
 export const BoardItem = ({ slide }: { slide: IEvent }) => {

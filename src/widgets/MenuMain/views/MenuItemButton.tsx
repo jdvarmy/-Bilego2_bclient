@@ -1,3 +1,5 @@
+'use client';
+
 import React, {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
@@ -7,7 +9,7 @@ import React, {
   useState,
 } from 'react';
 
-import { RouterLink } from '@/ui/RouterLink/RouterLink';
+import { RouterLink } from '@/shared/uikit/RouterLink/RouterLink';
 import css from '@/widgets/MenuMain/style/button.module.css';
 
 type ElementType = HTMLButtonElement | HTMLAnchorElement;

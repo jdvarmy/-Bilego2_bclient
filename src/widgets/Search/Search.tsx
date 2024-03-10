@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { useSearch } from '@/widgets/MenuHead/hooks/useSearch';
-import { SearchInput } from '@/widgets/MenuHead/views/SearchInput';
-import { SearchModal } from '@/widgets/MenuHead/views/SearchModal';
+import { useSearch } from '@/widgets/Search/hooks/useSearch';
+import { SearchInput } from '@/widgets/Search/SearchInput';
+import { SearchModal } from '@/widgets/Search/SearchModal';
 
 export const Search = () => {
   const { wrapperRef, inputRef, searchValue, isOpen, handlers } = useSearch();
 
   return (
-    <div ref={wrapperRef}>
+    <div ref={wrapperRef} className='relative h-9 bg-white w-full border-0 rounded-2xl'>
       <SearchInput
         ref={inputRef}
         value={searchValue}

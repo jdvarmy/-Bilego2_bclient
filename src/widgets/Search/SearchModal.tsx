@@ -1,9 +1,11 @@
+'use client';
+
 import { Transition } from '@headlessui/react';
 import React, { Fragment, MouseEventHandler } from 'react';
 import { createPortal } from 'react-dom';
 
-import { transitionTimingFunction } from '@/helpers/constants';
-import { useSearchModal } from '@/widgets/MenuHead/hooks/useSearchModal';
+import { transitionTimingFunction } from '@/shared/helpers/constants';
+import { useSearchModal } from '@/widgets/Search/hooks/useSearchModal';
 
 type Props = {
   open: boolean;

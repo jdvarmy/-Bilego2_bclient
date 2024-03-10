@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { RouterLink } from '@/ui/RouterLink/RouterLink';
+import { RouterLink } from '@/shared/uikit/RouterLink/RouterLink';
 import css from '@/widgets/MenuSidebar/styles/li.module.css';
 
 export const SidebarMenuItem = ({

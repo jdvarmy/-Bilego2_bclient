@@ -1,4 +1,4 @@
-import { stateCreatorHelper } from '@/helpers/storeHelpers/stateCreatorHelper';
+import { stateCreatorHelper } from '@/shared/helpers/storeHelpers/stateCreatorHelper';
 
 type State = {
   isPreferenceModeOn: boolean;

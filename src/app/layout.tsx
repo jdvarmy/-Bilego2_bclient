@@ -11,11 +11,13 @@ import './globals.css';
 import localFont from 'next/font/local';
 import React, { PropsWithChildren } from 'react';
 
-import { AvailableCities } from '@/screens/City/City';
-import { cityActions } from '@/screens/City/store/cityActions';
 import { MenuHead } from '@/widgets/MenuHead/MenuHead';
+import { BurgerMenuButton } from '@/widgets/MenuHead/views/BurgerMenuButton';
+import { CitySwitcher } from '@/widgets/MenuHead/views/CitySwitcher';
+import { PreferenceMode } from '@/widgets/MenuHead/views/PreferenceMode';
 import { MenuMain } from '@/widgets/MenuMain/MenuMain';
 import { MenuSidebar } from '@/widgets/MenuSidebar/MenuSidebar';
+import { Search } from '@/widgets/Search/Search';
 
 const font = localFont({
   src: [
@@ -27,18 +29,23 @@ const font = localFont({
 });
 
 export default function RootLayout({ children }: PropsWithChildren) {
-  cityActions.setCity()(AvailableCities.spb);
-
   return (
     <html lang='ru'>
       <body className={`${font.className.toString()} text-white bg-blue-900 font-body text-base`}>
         <main className={font.className.toString()}>
           <div className='flex w-screen h-screen'>
-            <div className='hidden bg-blue-800 md:fixed md:left-0 md:top-0 md:w-menu md:flex md:flex-col md:h-screen md:pt-9.5 md:px-8.5'>
-              <MenuMain />
-            </div>
+            <MenuMain />
             <div className='relative w-full flex flex-col bg-blue-900 py-5 px-7 overflow-x-hidden md:px-14 md:py-9.5 md:ml-menu md:w-[calc(100%_-_280px)]'>
-              <MenuHead />
+              <MenuHead
+                leftSideChildren={
+                  <>
+                    <BurgerMenuButton />
+                    <Search />
+                    <PreferenceMode />
+                  </>
+                }
+                rightSideChildren={<CitySwitcher />}
+              />
               {children}
             </div>
             <MenuSidebar />

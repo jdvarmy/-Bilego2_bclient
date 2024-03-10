@@ -1,14 +1,15 @@
 import React from 'react';
 
-import { serverFetcher } from '@/helpers/fetchers/serverFetcher';
-import { getGlobalProps } from '@/helpers/hof/getGlobalProps';
-import { AvailableCities, City, CityPagePropsType, defaultEventsFetchCountForCityScreen } from '@/screens/City/City';
+import { City } from '@/screens/City/City';
+import { AvailableCities, CityPagePropsType, defaultEventsFetchCountForCityScreen } from '@/screens/City/types';
 import { ISlide } from '@/screens/SingleEvent/type';
+import { serverFetcher } from '@/shared/helpers/fetchers/serverFetcher';
+import { getGlobalProps } from '@/shared/helpers/hof/getGlobalProps';
 
-const getStaticProps = getGlobalProps(async (props: { params: { city: AvailableCities } }) => {
+const getStaticProps = getGlobalProps(async (props: { params: { city: keyof typeof AvailableCities } }) => {
   const data = { count: defaultEventsFetchCountForCityScreen, c: props.params.city };
 
-  const promises: Promise<any>[] = [
+  const promises: Promise<unknown>[] = [
     serverFetcher.get<ISlide[]>({ url: `c/slider`, data }),
     serverFetcher.get<Event[]>({ url: `c/events`, data: { ...data, filter: { weekends: 1 } } }),
     serverFetcher.get<Event[]>({ url: `c/events`, data: { ...data } }),
@@ -20,8 +21,6 @@ const getStaticProps = getGlobalProps(async (props: { params: { city: AvailableC
   return { ...props, slides, events: { weekend, nearest, popular } };
 });
 
-export const revalidate = 3600;
-
 export async function generateStaticParams() {
   return Object.values(AvailableCities).map(item => ({ city: item }));
 }
@@ -30,7 +29,7 @@ export async function generateMetadata() {
   return { title: `Home | Bilego` };
 }
 
-export default async function CityPage(props: { params: { city: AvailableCities } }) {
+export default async function CityPage(props: { params: { city: keyof typeof AvailableCities } }) {
   const data = await getStaticProps(props);
 
   return <City {...(data as unknown as CityPagePropsType)} />;
