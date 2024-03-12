@@ -156,5 +156,15 @@ module.exports = {
       '4xl': '2rem',
       full: '9999px',
     },
+    extend: {
+      keyframes: {
+        pinging: {
+          '75%, 100%': { transform: 'scale(4)', opacity: 0 },
+        },
+      },
+      animation: {
+        pinging: 'pinging 1s cubic-bezier(0, 0, 0.2, 1) infinite',
+      },
+    },
   },
 };

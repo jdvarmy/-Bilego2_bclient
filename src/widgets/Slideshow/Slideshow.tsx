@@ -21,7 +21,6 @@ export const Slideshow = ({ slides }: { slides: ISlide[] }) => {
         mousewheel={false}
         spaceBetween={1}
         slidesPerView={1}
-        centeredSlides={true}
         autoplay={{ delay: 8000, pauseOnMouseEnter: true }}
         pagination={{ clickable: true, dynamicBullets: true }}
         modules={[Autoplay, Parallax, Pagination, Mousewheel, Keyboard]}
@@ -40,34 +39,34 @@ export const Slideshow = ({ slides }: { slides: ISlide[] }) => {
             />
             <div className='top-gradient' />
             <div className='absolute top-10 left-12 flex items-center' data-swiper-parallax='-100'>
-              {slide.taxonomy.map(tax => (
-                <RouterLink key={tax.uid} href={`/${tax?.type}/${tax?.slug}`}>
+              {slide.taxonomy.map((tax, i) => (
+                <RouterLink key={tax.uid} href={`/${tax?.type}/${tax?.slug}`} data-swiper-parallax={-100 * (i + 2)}>
                   <Chip text={tax?.name} />
                 </RouterLink>
               ))}
               <span className='font-bold text-base text-chrome'>+{slide.ageRestriction}</span>
             </div>
-            <div data-swiper-parallax='-200' className='absolute flex flex-col items-start bottom-10 left-12 w-3/5'>
+            <div data-swiper-parallax='-200' className='absolute flex flex-col items-start bottom-10 left-12 w-4/6'>
               {slide.eventDate && (
-                <div className='text-h5 text-left mb-1.5 md:text-h4'>
+                <div data-swiper-parallax='-200' className='text-h5 text-left mb-1.5 md:text-h4'>
                   {slideshowFormatter(slide.eventDate?.dateFrom)}
                 </div>
               )}
               {slide.item && (
-                <RouterLink href={`/items/${slide.item?.slug}`}>
+                <RouterLink data-swiper-parallax='-300' href={`/items/${slide.item?.slug}`}>
                   <p className='text-h5 text-left mb-4 inline-block md:text-h4'>{slide.item?.title}</p>
                 </RouterLink>
               )}
-              <div className='text-[2rem] font-bold text-left uppercase md:text-h3'>
+              <div data-swiper-parallax='-400' className='text-[2em] font-bold text-left uppercase md:text-h3'>
                 <RouterLink href={`/events/${slide.slug}`}>{slide.title}</RouterLink>
               </div>
             </div>
-            <div data-swiper-parallax-scale='0.15' className='absolute bottom-10 right-12'>
-              <RouterLink
-                href={`/events/${slide.slug}`}
-                className='flex items-center justify-center rounded-4xl bg-raspberry shadow-[5px_5px_16px_0px_rgba(255,51,109,0.53)] w-[120px] h-[36px] text-h5 font-bold md:font-normal md:w-[150px] md:h-[42px] lg:w-[220px] lg:h-[52px] lg:text-h4'
-              >
-                ГОУ
+            <div data-swiper-parallax-scale='0.05' className='absolute bottom-6 right-6 md:bottom-10 md:right-10'>
+              <RouterLink href={`/events/${slide.slug}`}>
+                <div className='relative rounded-full border-white w-[78px] h-[78px] border-[16px] md:w-[98px] md:h-[98px] md:border-[22px]'>
+                  <div className='absolute rounded-full bg-raspberry left-[10px] top-[10px] w-[26px] h-[26px] md:left-[12px] md:top-[12px] md:w-[30px] md:h-[30px]' />
+                  <div className='absolute rounded-full bg-raspberry left-[10px] top-[10px] w-[26px] h-[26px] md:left-[12px] md:top-[12px] md:w-[30px] md:h-[30px] hover:animate-pinging' />
+                </div>
               </RouterLink>
             </div>
           </SwiperSlide>
