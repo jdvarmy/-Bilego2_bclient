@@ -4,7 +4,7 @@ import { Transition } from '@headlessui/react';
 import React, { Fragment, MouseEventHandler } from 'react';
 import { createPortal } from 'react-dom';
 
-import { transitionTimingFunction } from '@/shared/helpers/constants';
+import { transitionTimingFunction } from '@/shared/lib/constants';
 import { useSearchModal } from '@/widgets/Search/hooks/useSearchModal';
 
 type Props = {

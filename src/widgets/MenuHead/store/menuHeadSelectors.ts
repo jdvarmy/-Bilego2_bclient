@@ -1,4 +1,4 @@
-import { createSelector } from '@/shared/helpers/storeHelpers/createSelector';
+import { selectorCreatorHelper } from '@/shared/lib/store/selector-creator.helper';
 import { menuHeadStore } from '@/widgets/MenuHead/store/menuHeadStore';
 
-export const isPreferenceModeOnSelector = () => createSelector(menuHeadStore).use.isPreferenceModeOn();
+export const isPreferenceModeOnSelector = () => selectorCreatorHelper(menuHeadStore).use.isPreferenceModeOn();

@@ -3,7 +3,7 @@
 
 import { useCallback, useRef, useState } from 'react';
 
-import { useDebounce } from '@/shared/helpers/hooks/useDebounce';
+import { useDebounce } from '@/shared/lib/hooks/use-debounce';
 
 export function useResizeObserver(isDebounce?: boolean) {
   const [size, setSize] = useState<DOMRectReadOnly>();

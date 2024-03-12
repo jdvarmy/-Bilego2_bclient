@@ -3,8 +3,8 @@ import useSWRMutation from 'swr/mutation';
 import { useCity } from '@/screens/City/hooks/useCity';
 import { defaultEventsFetchCountForCityScreen } from '@/screens/City/types';
 import { IEvent, PostType } from '@/screens/SingleEvent/type';
-import { publicFetcher } from '@/shared/helpers/fetchers/publicFetcher';
-import { useMethods } from '@/shared/helpers/hooks/useMethods';
+import { publicFetcher } from '@/shared/api/public-fetcher';
+import { useMethods } from '@/shared/lib/hooks/use-methods';
 
 export function usePropsEventsBoard(events: PostType<IEvent>, link: string) {
   const city = useCity();

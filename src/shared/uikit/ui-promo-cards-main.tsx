@@ -247,8 +247,7 @@ const promo = {
   ),
 };
 
-// eslint-disable-next-line no-undef
-export const PromoMainCards = ({ type, children }: PropsWithChildren<{ type: keyof typeof promo }>) => {
+export const UiPromoCardsMain = ({ type, children }: PropsWithChildren<{ type: keyof typeof promo }>) => {
   return (
     <div className='h-[130px] w-[100%] relative rounded-xl overflow-hidden'>
       {promo[type]}

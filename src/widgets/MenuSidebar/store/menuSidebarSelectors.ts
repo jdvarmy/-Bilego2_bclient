@@ -1,4 +1,4 @@
-import { createSelector } from '@/shared/helpers/storeHelpers/createSelector';
+import { selectorCreatorHelper } from '@/shared/lib/store/selector-creator.helper';
 import { menuSidebarStore } from '@/widgets/MenuSidebar/store/menuSidebarStore';
 
-export const isSidebarOpen = () => createSelector(menuSidebarStore).use.isOpen();
+export const isSidebarOpen = () => selectorCreatorHelper(menuSidebarStore).use.isOpen();

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { RouterLink } from '@/shared/uikit/RouterLink/RouterLink';
+import { UiRouterLink } from '@/shared/uikit/ui-router-link';
 import css from '@/widgets/MenuSidebar/styles/li.module.css';
 
 export const SidebarMenuItem = ({
@@ -15,12 +15,12 @@ export const SidebarMenuItem = ({
 }) => {
   return (
     <li className={`relative list-none ${css.li} ${active && css.active}`}>
-      <RouterLink href={item.slug} className='relative flex whitespace-nowrap'>
+      <UiRouterLink href={item.slug} className='relative flex whitespace-nowrap'>
         <div className='relative flex items-center justify-center min-w-[24px] h-[50px] transition-all'>
           <Icon className='z-10 relative left-[13px]' />
         </div>
         <div className='relative flex h-[50px] items-center text-xs pl-10 uppercase transition-all'>{item.name}</div>
-      </RouterLink>
+      </UiRouterLink>
     </li>
   );
 };

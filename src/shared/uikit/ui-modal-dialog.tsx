@@ -1,7 +1,7 @@
+'use client';
+
 import { Dialog, Transition } from '@headlessui/react';
 import React, { Fragment, PropsWithChildren } from 'react';
-
-import { sansationFont } from '@/components/Layout';
 
 type Props = PropsWithChildren & {
   show: boolean;
@@ -9,10 +9,10 @@ type Props = PropsWithChildren & {
   title?: string;
 };
 
-export const ModalDialog = ({ children, show, onClose, title }: Props) => {
+export const UiModalDialog = ({ children, show, onClose, title }: Props) => {
   return (
     <Transition appear show={show} as={Fragment}>
-      <Dialog as='div' className={`fixed inset-0 z-10 overflow-y-auto ${sansationFont.className}`} onClose={onClose}>
+      <Dialog as='div' className={`fixed inset-0 z-10 overflow-y-auto`} onClose={onClose}>
         <div className='min-h-screen px-4 text-center'>
           <Transition.Child
             as={Fragment}

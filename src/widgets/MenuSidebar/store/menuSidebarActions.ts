@@ -1,9 +1,9 @@
-import { createSelector } from '@/shared/helpers/storeHelpers/createSelector';
+import { selectorCreatorHelper } from '@/shared/lib/store/selector-creator.helper';
 import { menuSidebarStore } from '@/widgets/MenuSidebar/store/menuSidebarStore';
 
 export const menuSidebarActions = {
   toggleSidebar: () => {
-    const handler = createSelector(menuSidebarStore).use.toggle();
+    const handler = selectorCreatorHelper(menuSidebarStore).use.toggle();
     return (flag?: boolean | undefined) => handler(flag);
   },
 };

@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react';
 
-import { useLatest } from './useLatest';
+import { useLatest } from './use-latest';
 
 const defMs = 166;
 

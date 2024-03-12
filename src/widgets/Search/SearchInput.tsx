@@ -2,7 +2,7 @@ import { Transition } from '@headlessui/react';
 import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import React, { ChangeEventHandler, forwardRef, Fragment, KeyboardEventHandler, MouseEventHandler } from 'react';
 
-import { transitionTimingFunction } from '@/shared/helpers/constants';
+import { transitionTimingFunction } from '@/shared/lib/constants';
 
 type Props = {
   value: string;

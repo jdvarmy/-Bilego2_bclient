@@ -8,7 +8,7 @@ type Props = PropsWithChildren & {
   onClose: (value: boolean) => void;
 };
 
-export const ModalDrawer = ({ children, show, onClose }: Props) => {
+export const UiModalDrawer = ({ children, show, onClose }: Props) => {
   return (
     <Transition appear show={show} as={Fragment}>
       <Dialog as='div' className={`fixed inset-0 z-10 overflow-y-auto --font-sansation`} onClose={onClose}>

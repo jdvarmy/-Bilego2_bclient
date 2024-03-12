@@ -1,5 +1,5 @@
 import { userStore } from '@/screens/User/store/userStore';
-import { createSelector } from '@/shared/helpers/storeHelpers/createSelector';
+import { selectorCreatorHelper } from '@/shared/lib/store/selector-creator.helper';
 
-export const userSelector = () => createSelector(userStore).use.user();
-export const isLoginSelector = () => createSelector(userStore).use.isLogin();
+export const userSelector = () => selectorCreatorHelper(userStore).use.user();
+export const isLoginSelector = () => selectorCreatorHelper(userStore).use.isLogin();

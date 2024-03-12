@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const PromoBoardCards = () => {
+export const UiPromoCardsBoard = () => {
   return (
     <div className='flex justify-between col-span-4 gap-7'>
       <div className='flex justify-center items-center h-20 w-full bg-raspberry rounded-2xl'>

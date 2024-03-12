@@ -1,5 +1,5 @@
 import { EventTypeTaxonomyEnum, IEvent, ISlide, PostType } from '@/screens/SingleEvent/type';
-import { GlobalProps } from '@/shared/helpers/hof/getGlobalProps';
+import { GlobalProps } from '@/shared/lib/get-global-props';
 
 export const AvailableCities = {
   spb: 'spb',

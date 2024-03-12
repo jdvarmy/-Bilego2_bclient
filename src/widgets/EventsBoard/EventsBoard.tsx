@@ -5,7 +5,7 @@ import { FreeMode, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { EventTypeTaxonomyEnum, IEvent, PostType } from '@/screens/SingleEvent/type';
-import { isArray } from '@/shared/helpers/tsGuards';
+import { isArray } from '@/shared/lib/guards/is-array';
 import { usePropsEventsBoard } from '@/widgets/EventsBoard/hooks/usePropsEventsBoard';
 import { BoardItem } from '@/widgets/EventsBoard/views/BoardItem';
 import { BoarTitle } from '@/widgets/EventsBoard/views/BoarTitle';

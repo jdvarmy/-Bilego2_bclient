@@ -1,7 +1,7 @@
-import { createSelector } from '@/shared/helpers/storeHelpers/createSelector';
+import { selectorCreatorHelper } from '@/shared/lib/store/selector-creator.helper';
 import { calendarStore } from '@/widgets/Calendar/store/calendarStore';
 
-export const dayCalendarSelector = () => createSelector(calendarStore).use.day();
-export const weekCalendarSelector = () => createSelector(calendarStore).use.week();
-export const startDateCalendarSelector = () => createSelector(calendarStore).use.startDate();
-export const endDateCalendarSelector = () => createSelector(calendarStore).use.endDate();
+export const dayCalendarSelector = () => selectorCreatorHelper(calendarStore).use.day();
+export const weekCalendarSelector = () => selectorCreatorHelper(calendarStore).use.week();
+export const startDateCalendarSelector = () => selectorCreatorHelper(calendarStore).use.startDate();
+export const endDateCalendarSelector = () => selectorCreatorHelper(calendarStore).use.endDate();

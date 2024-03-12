@@ -1,17 +1,17 @@
 import React from 'react';
 
-import { Onward } from '@/shared/uikit/Onward/Onward';
-import { RouterLink } from '@/shared/uikit/RouterLink/RouterLink';
+import { UiOnward } from '@/shared/uikit/ui-onward';
+import { UiRouterLink } from '@/shared/uikit/ui-router-link';
 
 export const BoarTitle = ({ title, href }: { title: string; href: string }) => {
   return (
     <div className='flex items-center'>
-      <RouterLink href={href}>
+      <UiRouterLink href={href}>
         <h3 className='mr-8 text-h3 text-purple font-bold'>{title}</h3>
-      </RouterLink>
-      <RouterLink className='hidden lg:block' href={href}>
-        <Onward title='посмотреть все' />
-      </RouterLink>
+      </UiRouterLink>
+      <UiRouterLink className='hidden lg:block' href={href}>
+        <UiOnward title='посмотреть все' />
+      </UiRouterLink>
     </div>
   );
 };

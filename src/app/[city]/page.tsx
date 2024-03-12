@@ -3,8 +3,8 @@ import React from 'react';
 import { City } from '@/screens/City/City';
 import { AvailableCities, CityPagePropsType, defaultEventsFetchCountForCityScreen } from '@/screens/City/types';
 import { ISlide } from '@/screens/SingleEvent/type';
-import { serverFetcher } from '@/shared/helpers/fetchers/serverFetcher';
-import { getGlobalProps } from '@/shared/helpers/hof/getGlobalProps';
+import { serverFetcher } from '@/shared/api/server-fetcher';
+import { getGlobalProps } from '@/shared/lib/get-global-props';
 
 const getStaticProps = getGlobalProps(async (props: { params: { city: keyof typeof AvailableCities } }) => {
   const data = { count: defaultEventsFetchCountForCityScreen, c: props.params.city };

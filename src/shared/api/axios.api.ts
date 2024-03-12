@@ -1,16 +1,15 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import qs from 'qs';
 
-import { localStorageToken } from '@/shared/helpers/constants';
-import { API_ROOT, PUBLIC_API_ROOT, PUBLIC_API_VERSION } from '@/shared/helpers/env';
-import { ApiSide, RequestMethod } from '@/shared/helpers/fetchers/enums';
-import { ApiType, Indexed } from '@/shared/helpers/fetchers/types';
+import { ApiSide, RequestMethod } from '@/shared/api/enums';
+import { ApiType, Indexed } from '@/shared/api/types';
+import { PUBLIC_API_ROOT, PUBLIC_API_VERSION } from '@/shared/lib/env';
 
 const isServerSide = (side: ApiSide) => side === ApiSide.server;
 
 const baseConfig = (side: ApiSide) => ({
-  baseURL: (isServerSide(side) ? API_ROOT : PUBLIC_API_ROOT) + PUBLIC_API_VERSION + '/',
-  withCredentials: true,
+  baseURL: PUBLIC_API_ROOT + PUBLIC_API_VERSION + '/',
+  ...(!isServerSide(side) && { withCredentials: true }),
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -19,42 +18,6 @@ const baseConfig = (side: ApiSide) => ({
 
 export const serverInstance = axios.create(baseConfig(ApiSide.server));
 export const publicInstance = axios.create(baseConfig(ApiSide.client));
-
-publicInstance.interceptors.request.use(request => {
-  if (request.headers) {
-    const token = localStorage.getItem(localStorageToken);
-
-    if (token) {
-      request.headers.Authorization = `Bearer ${token}`;
-    }
-  }
-
-  return request;
-});
-
-publicInstance.interceptors.response.use(
-  response => response,
-  async error => {
-    const originalRequest = error.config;
-    if ([403].includes(error.response?.status) && error.config && !error.config._isRetry) {
-      originalRequest._isRetry = true;
-
-      try {
-        const { data } = await axios.get(`${baseConfig(ApiSide.client).baseURL}auth/refresh`, {
-          withCredentials: true,
-        });
-
-        localStorage.setItem(localStorageToken, data.accessToken);
-
-        return publicInstance.request(originalRequest);
-      } catch (e) {
-        return e;
-      }
-    }
-
-    return Promise.reject(error.response.data);
-  },
-);
 
 const baseRequest =
   <T extends ApiSide>(side: T) =>

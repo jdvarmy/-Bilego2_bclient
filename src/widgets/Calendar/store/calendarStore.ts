@@ -1,4 +1,4 @@
-import { stateCreatorHelper } from '@/shared/helpers/storeHelpers/stateCreatorHelper';
+import { stateCreatorHelper } from '@/shared/lib/store/state-creator.helper';
 import { getWeek } from '@/widgets/Calendar/helpers/getWeek';
 
 type State = {

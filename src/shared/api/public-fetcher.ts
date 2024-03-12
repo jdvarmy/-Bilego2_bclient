@@ -1,9 +1,9 @@
 import { AxiosRequestConfig } from 'axios';
 import useSWR, { SWRConfiguration } from 'swr';
 
-import { axiosApi } from '@/shared/helpers/fetchers/axiosApi';
-import { ApiSide } from '@/shared/helpers/fetchers/enums';
-import { ApiType, Indexed } from '@/shared/helpers/fetchers/types';
+import { axiosApi } from '@/shared/api/axios.api';
+import { ApiSide } from '@/shared/api/enums';
+import { ApiType, Indexed } from '@/shared/api/types';
 
 type LocalFetcherType = <R>(data: { url: string; data?: Indexed; cfg?: AxiosRequestConfig }) => Promise<R>;
 

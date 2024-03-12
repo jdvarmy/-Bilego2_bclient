@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Onward = ({ title }: { title: string }) => {
+export const UiOnward = ({ title }: { title: string }) => {
   return (
     <div className='h-8 font-light text-xs flex items-center rounded-[20px] px-5 bg-purple-dark'>
       {title}

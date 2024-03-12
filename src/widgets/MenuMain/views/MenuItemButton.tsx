@@ -9,7 +9,7 @@ import React, {
   useState,
 } from 'react';
 
-import { RouterLink } from '@/shared/uikit/RouterLink/RouterLink';
+import { UiRouterLink } from '@/shared/uikit/ui-router-link';
 import css from '@/widgets/MenuMain/style/button.module.css';
 
 type ElementType = HTMLButtonElement | HTMLAnchorElement;
@@ -38,7 +38,7 @@ export function MenuItemButton<T>({
     });
   };
 
-  const Component = componentType === 'button' ? ButtonComponent : RouterLink;
+  const Component = componentType === 'button' ? ButtonComponent : UiRouterLink;
   const style = styleType === 'primary' ? ({ '--x': `${coords.x}px`, '--y': `${coords.y}px` } as CSSProperties) : {};
   const classNames =
     styleType === 'primary'

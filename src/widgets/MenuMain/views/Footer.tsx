@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { memo } from 'react';
 
-import { RouterLink } from '@/shared/uikit/RouterLink/RouterLink';
+import { UiRouterLink } from '@/shared/uikit/ui-router-link';
 
 export const Footer = memo(function menuFooter() {
   return (
@@ -15,7 +15,7 @@ export const Footer = memo(function menuFooter() {
           <Link href={'/offer'}>оферта</Link>
         </div>
         <div>
-          <RouterLink href={`/items`}>места</RouterLink>
+          <UiRouterLink href={`/items`}>места</UiRouterLink>
         </div>
         <div>
           <Link href={'/about'}>о нас</Link>
