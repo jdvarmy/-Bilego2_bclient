@@ -1,7 +1,7 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
-import { AvailableCities } from '@/screens/City/types';
+import { AvailableCities } from '@/entities/city/model/types';
 
 export const config = {
   // Skip all paths that should not be internationalized

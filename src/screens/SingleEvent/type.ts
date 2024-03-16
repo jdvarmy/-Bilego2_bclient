@@ -1,4 +1,4 @@
-import { AvailableCitiesLong } from '@/screens/City/types';
+import { AvailableCitiesLong } from '@/entities/city/model/types';
 import { ItemShort } from '@/screens/SingleItem/type';
 import { Taxonomy } from '@/screens/Taxonomy/types';
 
@@ -41,12 +41,6 @@ interface BaseEvent {
   item?: ItemShort;
   taxonomy?: Pick<Taxonomy, 'uid' | 'name' | 'type' | 'slug'>[];
   image?: MediaDto;
-}
-
-export interface ISlide extends BaseEvent {
-  fragment?: string;
-  ageRestriction?: number;
-  eventDate?: EventDate;
 }
 
 export interface IEvent extends BaseEvent {

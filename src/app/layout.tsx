@@ -11,13 +11,13 @@ import './globals.css';
 import localFont from 'next/font/local';
 import React, { PropsWithChildren } from 'react';
 
-import { MenuHead } from '@/widgets/MenuHead/MenuHead';
-import { BurgerMenuButton } from '@/widgets/MenuHead/views/BurgerMenuButton';
-import { CitySwitcher } from '@/widgets/MenuHead/views/CitySwitcher';
-import { PreferenceMode } from '@/widgets/MenuHead/views/PreferenceMode';
-import { MenuMain } from '@/widgets/MenuMain/MenuMain';
-import { MenuSidebar } from '@/widgets/MenuSidebar/MenuSidebar';
-import { Search } from '@/widgets/Search/Search';
+import { MenuHead } from '@/refactor/MenuHead/MenuHead';
+import { BurgerMenuButton } from '@/refactor/MenuHead/views/BurgerMenuButton';
+import { CitySwitcher } from '@/refactor/MenuHead/views/CitySwitcher';
+import { PreferenceMode } from '@/refactor/MenuHead/views/PreferenceMode';
+import { MenuMain } from '@/refactor/MenuMain/MenuMain';
+import { MenuSidebar } from '@/refactor/MenuSidebar/MenuSidebar';
+import { Search } from '@/refactor/Search/Search';
 
 const font = localFont({
   src: [
