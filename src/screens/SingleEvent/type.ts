@@ -1,7 +1,3 @@
-import { AvailableCitiesLong } from '@/entities/city/model/types';
-import { ItemShort } from '@/screens/SingleItem/type';
-import { Taxonomy } from '@/screens/Taxonomy/types';
-
 export interface EventDate {
   uid: string;
   dateFrom?: string;
@@ -18,12 +14,6 @@ export enum ImageSizes {
   xl = '1920x1080',
 }
 
-export enum EventTypeTaxonomyEnum {
-  weekend = 'weekend',
-  nearest = 'nearest',
-  popular = 'popular',
-}
-
 export interface MediaDto {
   id: number;
   name: string;
@@ -31,24 +21,6 @@ export interface MediaDto {
   path: string[];
   mimetype: string;
   size: number;
-}
-
-interface BaseEvent {
-  uid: string;
-  slug: string;
-  title?: string;
-  artist?: unknown;
-  item?: ItemShort;
-  taxonomy?: Pick<Taxonomy, 'uid' | 'name' | 'type' | 'slug'>[];
-  image?: MediaDto;
-}
-
-export interface IEvent extends BaseEvent {
-  status: 'publish';
-  city: keyof typeof AvailableCitiesLong;
-  eventDates?: EventDate[];
-  isShowOnSlider: false;
-  concertManagerPercentage: 0;
 }
 
 export type PostType<T> = { items: T[]; props: { total: number; offset?: number } };

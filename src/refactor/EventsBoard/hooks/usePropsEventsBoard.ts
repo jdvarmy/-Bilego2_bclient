@@ -1,6 +1,7 @@
 import useSWRMutation from 'swr/mutation';
 
-import { IEvent, PostType } from '@/screens/SingleEvent/type';
+import { IEvent } from '@/entities/events';
+import { PostType } from '@/screens/SingleEvent/type';
 import { publicFetcher } from '@/shared/api/public-fetcher';
 import { useMethods } from '@/shared/lib/hooks/use-methods';
 

@@ -4,7 +4,7 @@ import { ISlide } from '@/entities/slider';
 import { UiChip } from '@/shared/uikit/ui-chip';
 import { UiRouterLink } from '@/shared/uikit/ui-router-link';
 
-export const SliderHeader = (props: { taxonomy?: ISlide['taxonomy']; age: number }) => {
+export const HeaderSlider = (props: { taxonomy?: ISlide['taxonomy']; age: number }) => {
   return (
     <div className='absolute top-10 left-12 flex items-center' data-swiper-parallax='-100'>
       {props.taxonomy?.map((tax, i) => (

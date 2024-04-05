@@ -2,15 +2,28 @@ import { EventDate, MediaDto } from '@/screens/SingleEvent/type';
 import { ItemShort } from '@/screens/SingleItem/type';
 import { Taxonomy } from '@/screens/Taxonomy/types';
 
+// Constants
+
+// Enums
+export enum EventTaxonomyTypeEnum {
+  weekends = 'weekends',
+  nearest = 'nearest',
+  popular = 'popular',
+}
+
+// Interfaces
 export interface IEvent {
   slug: string;
-  title?: string;
+  city: 'petersburg' | 'moscow';
+  title: string;
+  item: ItemShort;
   artist?: unknown;
-  item?: ItemShort;
   taxonomy?: Pick<Taxonomy, 'uid' | 'name' | 'type' | 'slug'>[];
   image?: MediaDto;
-  city: 'petersburg' | 'moscow';
   eventDates?: EventDate[];
-  isShowOnSlider: false;
-  concertManagerPercentage: 0;
+  isShowOnSlider?: false;
+  concertManagerPercentage?: 0;
 }
+
+// Types
+export type PostsType<T> = { items: T[]; props: { total: number; offset?: number } };

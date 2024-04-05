@@ -2,7 +2,7 @@ import React from 'react';
 
 import { UiRouterLink } from '@/shared/uikit/ui-router-link';
 
-export const SliderButtonGo = ({ slug }: { slug: string }) => {
+export const ButtonGoSlider = ({ slug }: { slug: string }) => {
   return (
     <div data-swiper-parallax-scale='0.05' className='absolute bottom-6 right-6 md:bottom-10 md:right-10'>
       <UiRouterLink href={`/events/${slug}`}>

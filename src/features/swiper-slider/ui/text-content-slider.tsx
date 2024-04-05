@@ -3,7 +3,7 @@ import React from 'react';
 import { ISlide, slideDateFormatter } from '@/entities/slider';
 import { UiRouterLink } from '@/shared/uikit/ui-router-link';
 
-export const SliderTextContent = (props: {
+export const TextContentSlider = (props: {
   slug: string;
   title: string;
   item: ISlide['item'];

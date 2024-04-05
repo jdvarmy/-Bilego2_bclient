@@ -7,7 +7,7 @@ const boardTimeFormatter = new Intl.DateTimeFormat('ru', {
   minute: '2-digit',
 });
 
-export const eventBoardDateFormatter = (dateStr?: string): string => {
+export const eventDateFormatter = (dateStr?: string): string => {
   if (!dateStr) {
     return '';
   }

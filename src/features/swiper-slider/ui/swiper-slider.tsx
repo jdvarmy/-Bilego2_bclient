@@ -6,12 +6,12 @@ import { Autoplay, Keyboard, Mousewheel, Pagination, Parallax } from 'swiper/mod
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { ISlide } from '@/entities/slider';
+import { ButtonGoSlider } from '@/features/swiper-slider/ui/button-go-slider';
+import { HeaderSlider } from '@/features/swiper-slider/ui/header-slider';
+import { TextContentSlider } from '@/features/swiper-slider/ui/text-content-slider';
 import { ImageSizes } from '@/screens/SingleEvent/type';
-import { SliderButtonGo } from '@/widgets/Slider/ui/slider-button-go';
-import { SliderHeader } from '@/widgets/Slider/ui/slider-header';
-import { SliderTextContent } from '@/widgets/Slider/ui/slider-text-content';
 
-export const Slider = ({ slides }: { slides: ISlide[] }) => {
+export const SwiperSlider = ({ slides }: { slides: ISlide[] }) => {
   return (
     <div className='rounded-xl overflow-hidden col-span-12 lg:col-span-12 xl:col-span-8'>
       <div className='h-[460px]'>
@@ -32,17 +32,16 @@ export const Slider = ({ slides }: { slides: ISlide[] }) => {
               <Image
                 src={slide.image.path.find(s => s.includes(ImageSizes.xl) || s.includes(ImageSizes.origin))}
                 alt={slide.title}
-                width={1920}
-                height={460}
+                fill
                 className='w-auto transition-opacity opacity-0 duration-[0.5s]'
                 onLoad={event => (event.target as HTMLImageElement).classList.remove('opacity-0')}
                 placeholder='blur'
                 blurDataURL={slide.image.path.find(s => s.includes(ImageSizes.xl) || s.includes(ImageSizes.origin))}
               />
               <div className='top-gradient' />
-              <SliderHeader taxonomy={slide.taxonomy} age={slide.ageRestriction} />
-              <SliderTextContent slug={slide.slug} title={slide.title} item={slide.item} eventDate={slide.eventDate} />
-              <SliderButtonGo slug={slide.slug} />
+              <HeaderSlider taxonomy={slide.taxonomy} age={slide.ageRestriction} />
+              <TextContentSlider slug={slide.slug} title={slide.title} item={slide.item} eventDate={slide.eventDate} />
+              <ButtonGoSlider slug={slide.slug} />
             </SwiperSlide>
           ))}
         </Swiper>

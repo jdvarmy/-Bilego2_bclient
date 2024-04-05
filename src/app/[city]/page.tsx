@@ -1,24 +1,23 @@
 import React from 'react';
 
-import { AvailableCities, CityPagePropsType } from '@/entities/city/model/types';
-import { sliderStore } from '@/entities/slider';
-import { City } from '@/screens/City';
-import { serverFetcher } from '@/shared/api/server-fetcher';
-import { getGlobalProps } from '@/shared/lib/get-global-props';
+import { AvailableCities } from '@/entities/city';
+import { eventsStore, EventTaxonomyTypeEnum, IEvent } from '@/entities/events';
+import { ISlide, sliderStore } from '@/entities/slider';
+import { CityScreen } from '@/screens/city.screen';
+import { PostType } from '@/screens/SingleEvent/type';
+import { getGlobalProps, GlobalProps } from '@/shared/lib/get-global-props';
 
 const getStaticProps = getGlobalProps(async (props: { params: { city: keyof typeof AvailableCities } }) => {
   const data = { count: 4, c: props.params.city };
 
-  const promises: Promise<unknown>[] = [
-    sliderStore.getSlides(data),
-    serverFetcher.get<unknown[]>({ url: `c/events`, data: { ...data, filter: { weekends: 1 } } }),
-    serverFetcher.get<unknown[]>({ url: `c/events`, data: { ...data } }),
-    serverFetcher.get<unknown[]>({ url: `c/events`, data: { ...data, filter: { popular: 1 } } }),
-  ];
+  const [slides, weekends, nearest, popular] = await Promise.all([
+    sliderStore.getSlidesServerSide(data),
+    eventsStore.getEventsServerSide({ ...data, filter: { weekends: 1 } }),
+    eventsStore.getEventsServerSide({ ...data }),
+    eventsStore.getEventsServerSide({ ...data, filter: { popular: 1 } }),
+  ]);
 
-  const [slides, weekend, nearest, popular] = await Promise.all(promises);
-
-  return { ...props, slides, events: { weekend, nearest, popular } };
+  return { ...props, slides, events: { weekends, nearest, popular } };
 });
 
 export async function generateStaticParams() {
@@ -32,5 +31,13 @@ export async function generateMetadata() {
 export default async function CityPage(props: { params: { city: keyof typeof AvailableCities } }) {
   const data = await getStaticProps(props);
 
-  return <City {...(data as unknown as CityPagePropsType)} />;
+  return (
+    <CityScreen
+      {...(data as unknown as GlobalProps & {
+        params: { city: keyof typeof AvailableCities };
+        slides: ISlide[];
+        events: Record<EventTaxonomyTypeEnum, PostType<IEvent>>;
+      })}
+    />
+  );
 }

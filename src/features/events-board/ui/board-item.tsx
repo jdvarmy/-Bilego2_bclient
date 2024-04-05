@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import React from 'react';
 
-import { eventBoardDateFormatter } from '@/refactor/EventsBoard/helpers';
-import { IEvent, ImageSizes } from '@/screens/SingleEvent/type';
+import { IEvent } from '@/entities/events';
+import { eventDateFormatter } from '@/features/events-board/model/event-date-formatter';
+import { ImageSizes } from '@/screens/SingleEvent/type';
 import { isArray } from '@/shared/lib/guards/is-array';
 import { UiChip } from '@/shared/uikit/ui-chip';
 import { UiRouterLink } from '@/shared/uikit/ui-router-link';
@@ -39,7 +40,7 @@ export const BoardItem = ({ slide }: { slide: IEvent }) => {
       <div className='w-full flex flex-col items-start pt-2'>
         {isArray(slide.eventDates) && slide.eventDates[0] && (
           <div className='text-h5 text-left mt-1.5 text-turquoise font-light'>
-            {eventBoardDateFormatter(slide.eventDates[0]?.dateFrom)}
+            {eventDateFormatter(slide.eventDates[0]?.dateFrom)}
           </div>
         )}
         <div className='text-h4 text-left text-chrome'>
