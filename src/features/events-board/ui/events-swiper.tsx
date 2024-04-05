@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { IEvent } from '@/entities/events';
 import { BoardItem } from '@/features/events-board/ui/board-item';
 import { Spinner } from '@/refactor/Spinner/Spinner';
+import { useResizeObserver } from '@/shared/lib/hooks/use-resize-observer';
 
 export const EventsSwiper = ({
   slides,
@@ -15,14 +16,16 @@ export const EventsSwiper = ({
   isLoading: boolean;
   onReachEnd: any;
 }) => {
+  const { size, cbRef } = useResizeObserver(true);
+
   return (
-    <div className='mt-5'>
+    <div ref={cbRef} className='mt-5'>
       <Swiper
         modules={[Navigation, FreeMode]}
         freeMode={true}
         navigation={true}
         spaceBetween={30}
-        slidesPerView={3}
+        slidesPerView={size.width > 632 ? 3 : 2}
         onReachEnd={onReachEnd}
       >
         {slides.map(slide => (
