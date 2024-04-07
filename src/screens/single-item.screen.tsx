@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const SingleItem = () => {
+export const SingleItemScreen = () => {
   return <div>SingleItem</div>;
 };

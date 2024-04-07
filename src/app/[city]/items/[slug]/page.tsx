@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { SingleItem } from '@/screens/single-item';
+import { SingleItemScreen } from '@/screens/single-item.screen';
 
 export default async function SingleItemPage() {
-  return <SingleItem />;
+  return <SingleItemScreen />;
 }

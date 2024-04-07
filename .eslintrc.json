@@ -1,12 +1,6 @@
 {
   "extends": ["eslint:recommended", "prettier", "next", "next/core-web-vitals"],
-  "plugins": ["simple-import-sort", "react-refresh", "boundaries"],
-  "rules": {
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
-    "@next/next/no-html-link-for-pages": "off",
-    "no-unused-vars": [1, { "varsIgnorePattern": "^_" }]
-  },
+  "plugins": ["simple-import-sort", "boundaries"],
   "settings": {
     "import/resolver": {
       "typescript": {
@@ -15,34 +9,86 @@
     },
     "boundaries/include": ["src/**/*"],
     "boundaries/elements": [
+      { "type": "app", "pattern": "app" },
+      { "type": "screens", "pattern": "screens/*", "capture": ["screen"] },
+      { "type": "widgets", "pattern": "widgets/*", "capture": ["widget"] },
+      { "type": "features", "pattern": "features/*", "capture": ["feature"] },
+      { "type": "entities", "pattern": "entities/*", "capture": ["entity"] },
+      { "type": "shared", "pattern": "shared/*", "capture": ["segment"] }
+    ]
+  },
+  "rules": {
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "@next/next/no-html-link-for-pages": "off",
+    "no-unused-vars": [1, { "varsIgnorePattern": "^_" }],
+    "boundaries/entry-point": [
+      2,
       {
-        "type": "app",
-        "pattern": "app"
-      },
+        "default": "disallow",
+        "rules": [
+          { "target": [["shared", { "segment": "api" }]], "allow": "*.(ts|tsx)" },
+          { "target": [["shared", { "segment": "lib" }]], "allow": "*.(ts|tsx)" },
+          { "target": [["shared", { "segment": "lib" }]], "allow": "guards/*.(ts|tsx)" },
+          { "target": [["shared", { "segment": "lib" }]], "allow": "hooks/*.(ts|tsx)" },
+          { "target": [["shared", { "segment": "lib" }]], "allow": "store/*.(ts|tsx)" },
+          { "target": [["shared", { "segment": "uikit" }]], "allow": "**" },
+          { "target": ["app", "screens", "widgets", "features", "entities"], "allow": "index.(ts|tsx)" }
+        ]
+      }
+    ],
+    "boundaries/element-types": [
+      2,
       {
-        "type": "pages",
-        "pattern": "src/pages/*",
-        "capture": ["page"]
-      },
-      {
-        "type": "widgets",
-        "pattern": "widgets/*",
-        "capture": ["widget"]
-      },
-      {
-        "type": "features",
-        "pattern": "features/*",
-        "capture": ["feature"]
-      },
-      {
-        "type": "entities",
-        "pattern": "entities/*",
-        "capture": ["entity"]
-      },
-      {
-        "type": "shared",
-        "pattern": "shared/*",
-        "capture": ["segment"]
+        "default": "allow",
+        "message": "${file.type} is not allowed to import (${dependency.type})",
+        "rules": [
+          {
+            "from": ["shared"],
+            "disallow": ["app", "screens", "widgets", "features", "entities"],
+            "message": "Shared module must not import upper layers (${dependency.type})"
+          },
+          {
+            "from": ["entities"],
+            "disallow": ["app", "screens", "widgets", "features"],
+            "message": "Entity module must not import upper layers (${dependency.type})"
+          },
+          {
+            "from": ["features"],
+            "disallow": ["app", "screens", "widgets"],
+            "message": "Feature module must not import upper layers (${dependency.type})"
+          },
+          {
+            "from": ["widgets"],
+            "disallow": ["app", "screens"],
+            "message": "Feature module must not import upper layers (${dependency.type})"
+          },
+          {
+            "from": ["screens"],
+            "disallow": ["app"],
+            "message": "Screens module must not import upper layers (${dependency.type})"
+          },
+          {
+            "from": ["entities"],
+            "disallow": [["entities", { "entity": "!${entity}" }]],
+            "message": "Entity module must not import other entity"
+          },
+          {
+            "from": ["features"],
+            "disallow": [["features", { "feature": "!${feature}" }]],
+            "message": "Feature module must not import other feature"
+          },
+          {
+            "from": ["widgets"],
+            "disallow": [["widgets", { "widget": "!${widget}" }]],
+            "message": "Widget module must not import other widget"
+          },
+          {
+            "from": ["screens"],
+            "disallow": [["screens", { "screen": "!${screen}" }]],
+            "message": "Screens module must not import other screen"
+          }
+        ]
       }
     ]
   }

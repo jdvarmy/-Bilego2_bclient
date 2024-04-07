@@ -4,6 +4,7 @@ import React from 'react';
 
 import { AvailableCities } from '@/entities/city';
 import { useCity } from '@/entities/city/model/city.store';
+import { EventSelectGroupEnum, IEvent } from '@/entities/event';
 import { NodesOfPostType } from '@/entities/post';
 import { ISlide } from '@/entities/slider';
 import { EventsBoard } from '@/features/events-board';
@@ -12,8 +13,6 @@ import { Promotions } from '@/features/promotions';
 import { SwiperSlider } from '@/features/swiper-slider';
 import { GlobalProps } from '@/shared/lib/get-global-props';
 import { UiPromoCardsBoard } from '@/shared/uikit/ui-promo-cards-board';
-
-import { EventSelectGroupEnum, IEvent } from '../entities/event';
 
 export const CityScreen = ({
   slides,
