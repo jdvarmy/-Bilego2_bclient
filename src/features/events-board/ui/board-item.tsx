@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import React from 'react';
 
-import { IEvent } from '@/entities/events';
 import { eventDateFormatter } from '@/features/events-board/model/event-date-formatter';
-import { ImageSizes } from '@/screens/SingleEvent/type';
 import { isArray } from '@/shared/lib/guards/is-array';
 import { UiChip } from '@/shared/uikit/ui-chip';
 import { UiRouterLink } from '@/shared/uikit/ui-router-link';
+
+import { IEvent } from '../../../entities/event';
+import { ImageSizes } from '../../../entities/image';
 
 export const BoardItem = ({ slide }: { slide: IEvent }) => {
   return (

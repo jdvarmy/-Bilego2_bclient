@@ -1,5 +1,5 @@
-import { Offer } from '@/screens/Offer/Offer';
+import { OfferScreen } from '@/screens/offer.screen';
 
 export default function OfferPage() {
-  return <Offer />;
+  return <OfferScreen />;
 }

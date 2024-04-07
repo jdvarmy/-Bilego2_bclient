@@ -8,16 +8,14 @@ import 'swiper/css/navigation';
 import 'tw-elements/dist/css/tw-elements.min.css';
 import './globals.css';
 
+import clsx from 'clsx';
 import localFont from 'next/font/local';
 import React, { PropsWithChildren } from 'react';
 
-import { MenuHead } from '@/refactor/MenuHead/MenuHead';
-import { BurgerMenuButton } from '@/refactor/MenuHead/views/BurgerMenuButton';
-import { CitySwitcher } from '@/refactor/MenuHead/views/CitySwitcher';
-import { PreferenceMode } from '@/refactor/MenuHead/views/PreferenceMode';
-import { MenuMain } from '@/refactor/MenuMain/MenuMain';
-import { MenuSidebar } from '@/refactor/MenuSidebar/MenuSidebar';
-import { Search } from '@/refactor/Search/Search';
+import { Calendar } from '@/features/calendar';
+import { CitySwitcher } from '@/features/city-switcher';
+import { MenuHead, MenuLeft, MenuSwipe } from '@/features/menu';
+import { Search } from '@/features/search';
 
 const font = localFont({
   src: [
@@ -31,24 +29,15 @@ const font = localFont({
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang='ru'>
-      <body className={`${font.className.toString()} text-white bg-blue-900 font-body text-base`}>
+      <body className={clsx(font.className.toString(), `text-white bg-blue-900 font-body text-base`)}>
         <main className={font.className.toString()}>
           <div className='flex w-screen h-screen'>
-            <MenuMain />
+            <MenuLeft calendar={<Calendar />} />
             <div className='relative w-full flex flex-col bg-blue-900 py-5 px-7 overflow-x-hidden md:px-14 md:py-9.5 md:ml-menu md:w-[calc(100%_-_280px)]'>
-              <MenuHead
-                leftSideChildren={
-                  <>
-                    <BurgerMenuButton />
-                    <Search />
-                    <PreferenceMode />
-                  </>
-                }
-                rightSideChildren={<CitySwitcher />}
-              />
+              <MenuHead leftSide={<Search />} rightSide={<CitySwitcher />} />
               {children}
             </div>
-            <MenuSidebar />
+            <MenuSwipe />
           </div>
         </main>
       </body>

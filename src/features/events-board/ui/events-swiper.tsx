@@ -2,10 +2,11 @@ import React from 'react';
 import { FreeMode, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { IEvent } from '@/entities/events';
 import { BoardItem } from '@/features/events-board/ui/board-item';
-import { Spinner } from '@/refactor/Spinner/Spinner';
 import { useResizeObserver } from '@/shared/lib/hooks/use-resize-observer';
+import { UiSpinner } from '@/shared/uikit/ui-spinner';
+
+import { IEvent } from '../../../entities/event';
 
 export const EventsSwiper = ({
   slides,
@@ -25,7 +26,7 @@ export const EventsSwiper = ({
         freeMode={true}
         navigation={true}
         spaceBetween={30}
-        slidesPerView={size.width > 632 ? 3 : 2}
+        slidesPerView={size?.width < 633 ? 2 : 3}
         onReachEnd={onReachEnd}
       >
         {slides.map(slide => (
@@ -35,7 +36,7 @@ export const EventsSwiper = ({
         ))}
         {isLoading && (
           <div className='swiper-button-next swiper-button-loading'>
-            <Spinner />
+            <UiSpinner />
           </div>
         )}
       </Swiper>

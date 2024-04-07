@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { SingleEvent } from '@/screens/SingleEvent/SingleEvent';
+import { SingleEventScreen } from '@/screens/single-event.screen';
 
 export default async function SingleEventPage() {
-  return <SingleEvent />;
+  return <SingleEventScreen />;
 }

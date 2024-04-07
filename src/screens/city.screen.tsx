@@ -4,15 +4,16 @@ import React from 'react';
 
 import { AvailableCities } from '@/entities/city';
 import { useCity } from '@/entities/city/model/city.store';
-import { EventTaxonomyTypeEnum, IEvent } from '@/entities/events';
+import { NodesOfPostType } from '@/entities/post';
 import { ISlide } from '@/entities/slider';
 import { EventsBoard } from '@/features/events-board';
+import { ForSelectiveUsers } from '@/features/for-selective-users';
 import { Promotions } from '@/features/promotions';
 import { SwiperSlider } from '@/features/swiper-slider';
-import { ForSelectiveUsers } from '@/refactor/ForSelectiveUsers/ForSelectiveUsers';
-import { PostType } from '@/screens/SingleEvent/type';
 import { GlobalProps } from '@/shared/lib/get-global-props';
 import { UiPromoCardsBoard } from '@/shared/uikit/ui-promo-cards-board';
+
+import { EventSelectGroupEnum, IEvent } from '../entities/event';
 
 export const CityScreen = ({
   slides,
@@ -21,7 +22,7 @@ export const CityScreen = ({
 }: GlobalProps & {
   params: { city: keyof typeof AvailableCities };
   slides: ISlide[];
-  events: Record<EventTaxonomyTypeEnum, PostType<IEvent>>;
+  events: Record<EventSelectGroupEnum, NodesOfPostType<IEvent>>;
 }) => {
   useCity(s => s.setCity)(params.city);
 
@@ -31,11 +32,11 @@ export const CityScreen = ({
         <SwiperSlider slides={slides} />
         <Promotions />
       </div>
-      <EventsBoard postEvents={events?.weekends} title='На выходные' type={EventTaxonomyTypeEnum.weekends} />
+      <EventsBoard postEvents={events?.weekends} title='На выходные' type={EventSelectGroupEnum.weekends} />
       <UiPromoCardsBoard />
       <EventsBoard postEvents={events?.nearest} title='Ближайшие' />
       <ForSelectiveUsers />
-      <EventsBoard postEvents={events?.popular} title='Популярные' type={EventTaxonomyTypeEnum.popular} />
+      <EventsBoard postEvents={events?.popular} title='Популярные' type={EventSelectGroupEnum.popular} />
     </>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Items } from '@/screens/Items/Items';
+import { ItemsScreen } from '@/screens/items.screen';
 
 export default async function ItemsPage() {
-  return <Items />;
+  return <ItemsScreen />;
 }

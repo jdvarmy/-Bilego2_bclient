@@ -1,5 +1,5 @@
-import { Contacts } from '@/screens/Contacts/Contacts';
+import { ContactsScreen } from '@/screens/contacts.screen';
 
 export default function ContactsPage() {
-  return <Contacts />;
+  return <ContactsScreen />;
 }

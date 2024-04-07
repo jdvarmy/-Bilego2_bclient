@@ -1,11 +1,12 @@
 import React from 'react';
 
 import { AvailableCities } from '@/entities/city';
-import { eventsStore, EventTaxonomyTypeEnum, IEvent } from '@/entities/events';
 import { ISlide, sliderStore } from '@/entities/slider';
 import { CityScreen } from '@/screens/city.screen';
 import { PostType } from '@/screens/SingleEvent/type';
 import { getGlobalProps, GlobalProps } from '@/shared/lib/get-global-props';
+
+import { EventSelectGroupEnum, eventsStore, IEvent } from '../../entities/event';
 
 const getStaticProps = getGlobalProps(async (props: { params: { city: keyof typeof AvailableCities } }) => {
   const data = { count: 4, c: props.params.city };
@@ -36,7 +37,7 @@ export default async function CityPage(props: { params: { city: keyof typeof Ava
       {...(data as unknown as GlobalProps & {
         params: { city: keyof typeof AvailableCities };
         slides: ISlide[];
-        events: Record<EventTaxonomyTypeEnum, PostType<IEvent>>;
+        events: Record<EventSelectGroupEnum, PostType<IEvent>>;
       })}
     />
   );

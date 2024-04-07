@@ -9,7 +9,8 @@ import { ISlide } from '@/entities/slider';
 import { ButtonGoSlider } from '@/features/swiper-slider/ui/button-go-slider';
 import { HeaderSlider } from '@/features/swiper-slider/ui/header-slider';
 import { TextContentSlider } from '@/features/swiper-slider/ui/text-content-slider';
-import { ImageSizes } from '@/screens/SingleEvent/type';
+
+import { ImageSizes } from '../../../entities/image';
 
 export const SwiperSlider = ({ slides }: { slides: ISlide[] }) => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Events } from '@/screens/Events/Events';
+import { EventsScreen } from '@/screens/events.screen';
 
 export default async function EventsPage() {
-  return <Events />;
+  return <EventsScreen />;
 }

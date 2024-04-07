@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { EventTaxonomyTypeEnum, IEvent, PostsType } from '@/entities/events';
+import { EventSelectGroupEnum, IEvent } from '@/entities/event';
+import { NodesOfPostType } from '@/entities/post';
 import { useCreateEventsBoardStore } from '@/features/events-board';
 import { BoardTitle } from '@/features/events-board/ui/board-title';
 import { EventsSwiper } from '@/features/events-board/ui/events-swiper';
@@ -9,8 +10,8 @@ import { isArray } from '@/shared/lib/guards/is-array';
 
 type Props = {
   title: string;
-  postEvents: PostsType<IEvent>;
-  type?: EventTaxonomyTypeEnum;
+  postEvents: NodesOfPostType<IEvent>;
+  type?: EventSelectGroupEnum;
 };
 
 export const EventsBoard = ({ title, postEvents, type }: Props) => {

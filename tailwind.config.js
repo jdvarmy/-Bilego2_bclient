@@ -87,6 +87,12 @@ module.exports = {
       'blue-800': '#17173f',
       'blue-900': '#07072e',
       white: '#ffffff',
+      'selective-one': '#FF336D',
+      'selective-two': '#5756A3',
+      'selective-three': '#61A356',
+      'selective-four': '#C069D6',
+      'selective-five': '#252481',
+      'selective-six': '#5756C3',
     },
     shadow: {
       spinner: 'inset 0 0 10px transparentize(#ff336d, 0.85)',
