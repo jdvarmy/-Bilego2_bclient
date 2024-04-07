@@ -10,7 +10,7 @@ import './globals.css';
 
 import clsx from 'clsx';
 import localFont from 'next/font/local';
-import React, { PropsWithChildren } from 'react';
+import React, { PropsWithChildren, Suspense } from 'react';
 
 import { Calendar } from '@/features/calendar';
 import { CitySwitcher } from '@/features/city-switcher';
@@ -37,7 +37,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
               <MenuHead leftSide={<Search />} rightSide={<CitySwitcher />} />
               {children}
             </div>
-            <MenuSwipe />
+            <Suspense>
+              <MenuSwipe />
+            </Suspense>
           </div>
         </main>
       </body>

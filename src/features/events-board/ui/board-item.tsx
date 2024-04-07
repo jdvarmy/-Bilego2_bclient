@@ -34,7 +34,7 @@ export const BoardItem = ({ slide }: { slide: IEvent }) => {
             .sort((a, b) => a.type.localeCompare(b.type))
             .filter((_, index) => index < 2)
             .map(tax => (
-              <UiChip key={tax.uid} text={tax?.name} />
+              <UiChip key={tax.slug} text={tax?.name} />
             ))}
         </div>
       </div>
