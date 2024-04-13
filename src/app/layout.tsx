@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import localFont from 'next/font/local';
 import React, { PropsWithChildren } from 'react';
 
-import { getGlobalProps } from '@/entities/global';
+import { getGlobalProps } from '@/entities/global-props';
 import { GlobalPropsProvider } from '@/features/global-props';
 import { RootLayout } from '@/widgets/root-layout';
 

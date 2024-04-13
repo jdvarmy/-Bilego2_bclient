@@ -1,10 +1,9 @@
 import qs from 'qs';
 import React from 'react';
 
+import { EventSelectGroupEnum } from '@/entities/event';
 import { UiOnward } from '@/shared/uikit/ui-onward';
 import { UiRouterLink } from '@/shared/uikit/ui-router-link';
-
-import { EventSelectGroupEnum } from '../../../entities/event';
 
 export const BoardTitle = ({ title, type }: { title: string; type?: EventSelectGroupEnum }) => {
   const link = `/events${type ? qs.stringify({ [type]: 1 }, { addQueryPrefix: true }) : ''}`;

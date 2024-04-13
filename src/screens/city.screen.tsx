@@ -6,6 +6,7 @@ import { AvailableCities, useCity } from '@/entities/city';
 import { EventSelectGroupEnum, IEvent } from '@/entities/event';
 import { NodesOfPostType } from '@/entities/post';
 import { ISlide } from '@/entities/slider';
+import { Collection } from '@/features/collection';
 import { EventsBoard } from '@/features/events-board';
 import { ForSelectiveUsers } from '@/features/for-selective-users';
 import { Promotions } from '@/features/promotions';
@@ -32,6 +33,7 @@ export const CityScreen = ({ slides, events, params }: CityScreenProps) => {
       <EventsBoard postEvents={events?.nearest} title='Ближайшие' />
       <ForSelectiveUsers />
       <EventsBoard postEvents={events?.popular} title='Популярные' type={EventSelectGroupEnum.popular} />
+      <Collection />
     </>
   );
 };
