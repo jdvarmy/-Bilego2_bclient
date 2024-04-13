@@ -1,3 +1,5 @@
+'use client';
+
 import { addDays, isSaturday, isSunday, nextSaturday, nextSunday } from 'date-fns';
 
 import { getWeek, useCalendar } from '@/entities/calendar';

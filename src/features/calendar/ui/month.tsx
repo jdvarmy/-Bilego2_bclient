@@ -1,3 +1,5 @@
+'use client';
+
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import { isBefore, startOfWeek } from 'date-fns';
 import React from 'react';

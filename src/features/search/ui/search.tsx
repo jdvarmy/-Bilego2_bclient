@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 import { useSearch } from '@/features/search/model/use-search';

@@ -1,3 +1,5 @@
+'use client';
+
 import { StarIcon } from '@heroicons/react/24/outline';
 import React from 'react';
 

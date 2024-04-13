@@ -2,11 +2,10 @@ import React from 'react';
 import { FreeMode, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { IEvent } from '@/entities/event';
 import { BoardItem } from '@/features/events-board/ui/board-item';
 import { useResizeObserver } from '@/shared/lib/hooks/use-resize-observer';
 import { UiSpinner } from '@/shared/uikit/ui-spinner';
-
-import { IEvent } from '../../../entities/event';
 
 export const EventsSwiper = ({
   slides,

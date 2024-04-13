@@ -46,3 +46,4 @@ export interface IEvent {
 }
 
 // Types
+export type NodesOfEventType<T = IEvent> = { items: T[]; props: { total: number; offset?: number } };

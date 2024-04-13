@@ -1,3 +1,5 @@
+'use client';
+
 import React, { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 import { TERipple } from 'tw-elements-react';
 

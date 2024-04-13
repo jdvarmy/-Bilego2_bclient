@@ -2,12 +2,11 @@
 
 import useSWRMutation from 'swr/mutation';
 
-import { useCity } from '@/entities/city/model/city.store';
+import { useCity } from '@/entities/city';
+import { EventSelectGroupEnum, IEvent } from '@/entities/event';
 import { NodesOfPostType } from '@/entities/post';
 import { publicFetcher } from '@/shared/api/public-fetcher';
 import { useMethods } from '@/shared/lib/hooks/use-methods';
-
-import { EventSelectGroupEnum, IEvent } from '../../../entities/event';
 
 type EventsBoardStore = {
   events: IEvent[];

@@ -1,21 +1,10 @@
-'use client';
-
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/parallax';
-import 'swiper/css/autoplay';
-import 'swiper/css/navigation';
-import 'tw-elements/dist/css/tw-elements.min.css';
-import './globals.css';
-
 import clsx from 'clsx';
 import localFont from 'next/font/local';
-import React, { PropsWithChildren, Suspense } from 'react';
+import React, { PropsWithChildren } from 'react';
 
-import { Calendar } from '@/features/calendar';
-import { CitySwitcher } from '@/features/city-switcher';
-import { MenuHead, MenuLeft, MenuSwipe } from '@/features/menu';
-import { Search } from '@/features/search';
+import { getGlobalProps } from '@/entities/global';
+import { GlobalPropsProvider } from '@/features/global-props';
+import { RootLayout } from '@/widgets/root-layout';
 
 const font = localFont({
   src: [
@@ -26,21 +15,16 @@ const font = localFont({
   variable: '--font-sansation',
 });
 
-export default function RootLayout({ children }: PropsWithChildren) {
+export default async function Layout({ children }: PropsWithChildren) {
+  const globalProps = await getGlobalProps();
+
   return (
     <html lang='ru'>
       <body className={clsx(font.className.toString(), `text-white bg-blue-900 font-body text-base`)}>
         <main className={font.className.toString()}>
-          <div className='flex w-screen h-screen'>
-            <MenuLeft calendar={<Calendar />} />
-            <div className='relative w-full flex flex-col bg-blue-900 py-5 px-7 overflow-x-hidden md:px-14 md:py-9.5 md:ml-menu md:w-[calc(100%_-_280px)]'>
-              <MenuHead leftSide={<Search />} rightSide={<CitySwitcher />} />
-              {children}
-            </div>
-            <Suspense>
-              <MenuSwipe />
-            </Suspense>
-          </div>
+          <GlobalPropsProvider value={globalProps}>
+            <RootLayout>{children}</RootLayout>
+          </GlobalPropsProvider>
         </main>
       </body>
     </html>

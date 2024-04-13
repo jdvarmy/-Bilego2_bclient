@@ -1,5 +1,7 @@
-import { createContext } from 'react';
+'use client';
 
-export function createStrictContext<T>() {
+import { Context, createContext } from 'react';
+
+export function createStrictContext<T>(): Context<T> {
   return createContext<T | null>(null);
 }
