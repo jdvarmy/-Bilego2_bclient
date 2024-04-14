@@ -2,14 +2,14 @@ import { FaceSmileIcon, MagnifyingGlassIcon, SparklesIcon } from '@heroicons/rea
 import React from 'react';
 
 import { ItemMenuFooter } from '@/features/menu/footer/ui/item-menu-footer';
-import { UiRouterLink } from '@/shared/uikit/ui-router-link';
+import { UiLinkIcon } from '@/shared/uikit/ui-link-icon';
 
 export const MenuFooter = () => {
   return (
     <div className='h-16'>
       <div className='h-16 w-full flex fixed left-0 bottom-0 shadow-xl'>
-        <div className='list-none h-full p-0 m-0 overflow-hidden w-full grid grid-flow-col justify-stretch border-t-2 border-blue-700'>
-          <UiRouterLink className='text-xs text-center flex justify-center items-center flex-col' href='/'>
+        <nav className='list-none h-full p-0 m-0 overflow-hidden w-full grid grid-flow-col justify-stretch border-t-2 border-blue-700'>
+          <UiLinkIcon className='h-full text-xs text-center flex justify-center items-center flex-col' href='/'>
             <svg width={60} viewBox='85 -2 75 38' fill='none' xmlns='http://www.w3.org/2000/svg'>
               <path
                 d='M141.34 16.43C141.34 18.61 139.57 20.38 137.39 20.38C135.21 20.38 133.44 18.61 133.44 16.43C133.44 14.25 135.21 12.48 137.39 12.48C139.57 12.47 141.34 14.24 141.34 16.43Z'
@@ -24,11 +24,11 @@ export const MenuFooter = () => {
                 fill='white'
               />
             </svg>
-          </UiRouterLink>
+          </UiLinkIcon>
           <ItemMenuFooter href='/events' title='Лучшее' renderIcon={props => <SparklesIcon {...props} />} />
-          <ItemMenuFooter title='Афиша' href='/billboard' renderIcon={props => <FaceSmileIcon {...props} />} />
+          <ItemMenuFooter href='/billboard' title='Афиша' renderIcon={props => <FaceSmileIcon {...props} />} />
           <ItemMenuFooter href='/search' title='Поиск' renderIcon={props => <MagnifyingGlassIcon {...props} />} />
-        </div>
+        </nav>
       </div>
     </div>
   );

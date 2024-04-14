@@ -12,9 +12,11 @@ export const PreferenceMode = () => {
 
   return (
     <div className='flex items-center'>
-      <UiButtonIcon className='flex items-center pl-6 mr-4' onClick={() => handleToggleMode(!isPreferenceMode)}>
+      <UiButtonIcon className='flex items-center md:pl-6 md:mr-4' onClick={() => handleToggleMode(!isPreferenceMode)}>
         <StarIcon
-          className={`w-8 h-8 cursor-pointer text-chrome ${isPreferenceMode && 'fill-raspberry stroke-raspberry'}`}
+          className={`w-8 h-8 cursor-pointer text-chrome ${
+            isPreferenceMode && 'stroke-raspberry drop-shadow-[2px_3px_5px_rgba(255,51,109,0.84)]'
+          }`}
         />
       </UiButtonIcon>
       <span className='hidden text-xs leading-4 text-chrome xl:block'>режим предпочтений</span>

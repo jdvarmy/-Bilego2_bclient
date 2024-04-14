@@ -15,6 +15,7 @@ Layout.Mobile = function Mobile({ children }: PropsWithChildren) {
   return (
     <>
       <div className='relative h-dvh flex flex-col w-full overflow-x-hidden'>
+        <MenuHead rightSide={<CitySwitcher />} />
         <div className='grow'>{children}</div>
         <MenuFooter />
       </div>
