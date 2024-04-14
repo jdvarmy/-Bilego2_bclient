@@ -9,6 +9,7 @@ import { ISlide } from '@/entities/slider';
 import { Collection } from '@/features/collection';
 import { EventsBoard } from '@/features/events-board';
 import { ForSelectiveUsers } from '@/features/for-selective-users';
+import { useGlobalPropsContextDeps } from '@/features/global-props';
 import { Promotions } from '@/features/promotions';
 import { SwiperSlider } from '@/features/swiper-slider';
 import { UiPromoCardsBoard } from '@/shared/uikit/ui-promo-cards-board';
@@ -20,7 +21,12 @@ export type CityScreenProps = {
 };
 
 export const CityScreen = ({ slides, events, params }: CityScreenProps) => {
+  const { isMobile } = useGlobalPropsContextDeps();
   useCity(s => s.setCity)(params.city);
+
+  if (isMobile) {
+    return <div>content</div>;
+  }
 
   return (
     <>
